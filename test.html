@@ -1,0 +1,186 @@
+    <style>
+        body {
+            line-height: 1.6;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .poster {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .section {
+            background-color: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .section-content {
+            padding: 20px;
+        }
+        .flex-container {
+            display: flex;
+            gap: 20px;
+        }
+        .flex-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .background {
+            flex: 2;
+        }
+        .objective {
+            flex: 1;
+        }
+        .methods-container {
+            display: flex;
+            gap: 20px;
+        }
+        .method {
+            flex: 1;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .graph-button {
+            padding: 10px 20px;
+            font-size: 14px;
+            border: none;
+            background-color: #f0f0f0;
+            color: black;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        .graph-button:hover {
+            background-color: #e0e0e0;
+        }
+        .graph-content {
+            display: none;
+        }
+        .graph-content.active {
+            display: block;
+        }
+        .graph-button.active {
+            background-color: #e0e0e0;
+        }
+        .graph {
+            width: 100%;
+            border: none;
+        }
+        .lessons-learned {
+            display: flex;
+            align-items: stretch;
+        }
+        .lessons-learned .section-content {
+            flex: 1;
+        }
+    </style>
+<body>
+    <div class="poster">
+        <div class="flex-container">
+            <section class="section flex-item background">
+                <h1 class="section-title" style="background-color: #5F6962; color: #fff; font-size: 20px; font-weight: bold; padding: 20px; margin: 0;">Background</h1>
+                <div class="section-content">
+                    <p>According to the results of the 2021/2022 National Survey, released by the Japanese Cabinet Secretariat, 40% of people in Japan report feeling lonely. During the same period, the figure was 15% in the U.K. and one in two people in the U.S. Therefore, recognizing loneliness is crucial in primary health care. This study explores the understudied topic of perceptions of loneliness among family physicians and nurses.</p>
+                </div>
+            </section>
+            <section class="section flex-item objective">
+                <h1 class="section-title" style="background-color: #5F6962; color: #fff; font-size: 20px; font-weight: bold; padding: 20px; margin: 0;">Objective</h1>
+                <div class="section-content">
+                    <p>Highlight the distinctions between Japanese family physicians and nurses in assessing factors that indicate patient loneliness.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="section methods">
+            <h1 class="section-title" style="background-color: #5F6962; color: #fff; font-size: 20px; font-weight: bold; padding: 20px; margin: 0;">Methods</h1>
+            <div class="section-content methods-container">
+                <div class="method">
+                    <h2>Study Design 1</h2>
+                    <ul>
+                        <li><strong>Study design:</strong> A cross-sectional study using a self-administered</li>
+                        <li><strong>Setting:</strong> Two family medicine clinics in Fukushima</li>
+                        <li><strong>Subjects:</strong> Patients aged 50 years or older, Family physicians & nurses</li>
+                        <li><strong>Period:</strong> From August 1 to 31, 2020</li>
+                        <li><strong>Survey items:</strong> 1-item Q "Do you think the patient is lonely, based on the past 6 months of medical records?" for family physicians & nurses, UCLA Loneliness Scale (3rd ed) for patients</li>
+                        <li><strong>Epidemiological analysis (Stata/SE ver. 18.0):</strong> Screening test and Chi-square test</li>
+                        <li><strong>Ethical considerations:</strong> Fukushima Medical University (General 2020-025).</li>
+                    </ul>
+                </div>
+                <div class="method">
+                    <h2>Study Design 2</h2>
+                    <ul>
+                        <li><strong>Study design:</strong> Quantitative analysis of free written opinions collected by a self-administered questionnaire</li>
+                        <li><strong>Subjects:</strong> The same healthcare providers in the Methods 1</li>
+                        <li><strong>Participants:</strong> 10 participants (3 family physicians, 7 nurses), 65 sentences</li>
+                        <li><strong>Period:</strong> From July to August, 2023</li>
+                        <li><strong>Survey items:</strong> "When do patients feel lonely?" (free-response type)</li>
+                        <li><strong>Text mining analysis:</strong> Sentence-by-sentence analysis, Co-occurrence network (KH Coder 3)</li>
+                        <li><strong>Ethical considerations:</strong> Fukushima Medical University (General 2023-009).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section results">
+            <h1 class="section-title" style="background-color: #5F6962; color: #fff; font-size: 20px; font-weight: bold; padding: 20px; margin: 0;">Results</h1>
+            <div class="section-content">
+                <div class="button-container">
+                    <button class="graph-button active" onclick="showGraph('cross-sectional-content')">Cross-sectional study using self-administered questionnaire</button>
+                    <button class="graph-button" onclick="showGraph('quantitative-analysis-content')">Quantitative analysis of free written opinions collected by a self-administered questionnaire</button>
+                </div>
+                <div id="cross-sectional-content" class="graph-content active">
+                    <iframe title="Cross-sectional study results" id="datawrapper-chart-gWU2N" src="https://datawrapper.dwcdn.net/gWU2N/5/" scrolling="no" class="graph" height="626"></iframe>
+                </div>
+                <div id="quantitative-analysis-content" class="graph-content">
+                    <iframe title="Quantitative analysis results" id="flourish-iframe" src="https://flo.uri.sh/story/2429035/embed" scrolling="no" class="graph" height="600" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="section lessons-learned">
+            <h1 class="section-title" style="background-color: #5F6962; color: #fff; font-size: 20px; font-weight: bold; padding: 20px; margin: 0;">Lessons learned</h1>
+            <div class="section-content">
+                <ol>
+                    <li>Sensitivity of diagnosing loneliness was higher among physicians than nurses.</li>
+                    <li>Physicians/nurses relied on different patient characteristics to diagnose loneliness in patients.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section references">
+            <h1 class="section-title" style="background-color: #5F6962; color: #fff; font-size: 20px; font-weight: bold; padding: 20px; margin: 0;">New References</h1>
+            <div class="section-content">
+                <p>Yoshida K, Honda K, Goto A, Kawachi I. Collateral Health Effects of Loneliness Care in Japan. Health Serv Res Manag Epidemiol. 2024;11: 23333928241240970.</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function showGraph(id) {
+            var contents = document.querySelectorAll('.graph-content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+            var buttons = document.querySelectorAll('.graph-button');
+            buttons.forEach(function(button) {
+                button.classList.remove('active');
+            });
+            var selectedContent = document.getElementById(id);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            var selectedButton = document.querySelector(`button[onclick="showGraph('${id}')"]`);
+            if (selectedButton) {
+                selectedButton.classList.add('active');
+            }
+        }
+    </script>
+</body>
