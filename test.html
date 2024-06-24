@@ -190,7 +190,6 @@
     }
 </style>
 
-
 <body>
     <div class="header">
         <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
@@ -253,9 +252,9 @@
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
-            <button class="expand-btn active" onclick="showGraph('flourish1')">Employment and Psychological
+            <button class="expand-btn active" onclick="showGraph('flourish1', event)">Employment and Psychological
                 Distress</button>
-            <button class="expand-btn" onclick="showGraph('flourish2')">Socioeconomic Status and Psychological
+            <button class="expand-btn" onclick="showGraph('flourish2', event)">Socioeconomic Status and Psychological
                 Distress</button>
         </div>
         <div id="flourish1">
@@ -308,19 +307,31 @@
 
     <script src="https://public.flourish.studio/resources/embed.js"></script>
     <script>
-        function showGraph(id) {
+        // Function to show the selected graph and update button states
+        function showGraph(id, event) {
+            // Hide all graphs
             var graphs = document.querySelectorAll('[id^="flourish"]');
             graphs.forEach(function (graph) {
                 graph.classList.add('hidden');
             });
-            var selectedGraph = document.getElementById(id);
-            selectedGraph.classList.remove('hidden');
 
+            // Show the selected graph
+            var selectedGraph = document.getElementById(id);
+            if (selectedGraph) {
+                selectedGraph.classList.remove('hidden');
+            }
+
+            // Update button states
             var buttons = document.querySelectorAll('.expand-btn');
             buttons.forEach(function (btn) {
                 btn.classList.remove('active');
             });
             event.target.classList.add('active');
         }
+
+        // Show the first graph by default when the page loads
+        window.onload = function () {
+            showGraph('flourish1', { target: document.querySelector('.expand-btn') });
+        };
     </script>
 </body>
