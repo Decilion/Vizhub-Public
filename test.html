@@ -2,50 +2,42 @@
     body {
         line-height: 1.6;
     }
-
     .header {
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
         overflow: hidden;
     }
-
     .header img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 20px;
     }
-
     .section-block {
         display: flex;
         gap: 20px;
         margin: 10px 0px 0px 0px;
     }
-
     .section {
         padding: 25px;
         background-color: #e5e5e5;
         border-radius: 20px;
         margin: 10px 0px 10px 0px;
     }
-
     .section:first-child {
         flex: 0 1 auto;
         max-width: 35%;
     }
-
     .section:last-child {
         flex: 1 1 auto;
     }
-
     .section-title {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 10px;
         color: #243F59;
     }
-
     .section-subtitle {
         font-size: 1.2em;
         font-weight: bold;
@@ -54,19 +46,17 @@
         margin-bottom: 10px;
         color: #004466;
     }
-
     .interactive-element {
-        padding: 0px;
+        padding-top: 15;
         margin: 0px 0;
     }
-
     .button-container {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-bottom: 15px;
+        margin-top: 15px;
     }
-
     .expand-btn {
         background-color: #6F7871;
         color: white;
@@ -75,15 +65,12 @@
         cursor: pointer;
         border-radius: 5px;
     }
-
     .expand-btn.active {
         background-color: #889D66;
     }
-
     .hidden {
         display: none;
     }
-
     .objectives-list,
     .conclusions-list {
         display: flex;
@@ -92,7 +79,6 @@
         list-style-type: none;
         padding-left: 0;
     }
-
     .objectives-list li,
     .conclusions-list li {
         background-color: #F2F2F2;
@@ -101,19 +87,16 @@
         border-left: 5px solid #889D66;
         transition: all 0.3s ease;
     }
-
     .objectives-list li:hover,
     .conclusions-list li:hover {
         transform: translateX(5px);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .method-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
-
     .method-item {
         background-color: #f2f2f2;
         padding: 15px;
@@ -121,70 +104,58 @@
         text-align: center;
         transition: all 0.3s ease;
     }
-
     .method-item:hover {
         transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
-
     .method-icon {
         font-size: 24px;
         margin-bottom: 10px;
     }
-
     .method-title {
         font-weight: bold;
         margin-bottom: 5px;
     }
-
     .footer {
         display: flex;
         justify-content: space-between;
         padding: 10px;
     }
-
     .footer-section {
         flex: 1;
         background-color: transparent;
         padding: 1px;
     }
-
     .footer-title {
         font-size: 1.3em;
         font-weight: bold;
         color: #333;
         margin-bottom: 10px;
     }
-
     .footer-content {
         font-size: 0.8em;
         color: #555;
     }
-
     @media (max-width: 768px) {
         .section-block {
             flex-direction: column;
             gap: 0px;
         }
-
         .section:first-child,
         .section:last-child {
             flex: 1 1 auto;
             max-width: 100%;
         }
-
         .objectives-list {
             height: auto;
         }
     }
 </style>
-
 <body>
     <div class="header">
         <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
             alt="Harvard T.H. Chan School of Public Health | Takemi Program in International Health">
     </div>
-
     <div class="section-block">
         <div class="section">
             <p class="section-title">Introduction</p>
@@ -203,7 +174,6 @@
             </ul>
         </div>
     </div>
-
     <div class="section">
         <p class="section-title">Methods</p>
         <div class="method-grid">
@@ -224,7 +194,6 @@
             </div>
         </div>
     </div>
-
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
@@ -271,10 +240,9 @@
         <div id="childhood-cancer" class="interactive-element hidden">
             <iframe title="Childhood (0 14 years) cancer types, numbers, their rates." aria-label="Table"
                 id="datawrapper-chart-o09k3" src="https://datawrapper.dwcdn.net/o09k3/6/" scrolling="no" frameborder="0"
-                style="border: none;" width="686" height="499" data-external="1"></iframe>
+                style="border: none;" width=100% height=600px data-external="1"></iframe>
         </div>
     </div>
-
     <div class="section">
         <p class="section-title">Conclusions and Recommendations</p>
         <ul class="conclusions-list">
@@ -284,14 +252,13 @@
             <li>Continued support and expansion of cancer registry efforts are recommended.</li>
         </ul>
     </div>
-
     <div class="section-block footer">
         <div class="footer-section">
             <p class="footer-title">References</p>
             <ol class="footer-content">
                 <li>Ferlay et al. (2024). Global Cancer Observatory: Cancer Today. Lyon.</li>
-                <li>Bray et al. (2014). Planning and Developing Population-Based Cancer Registration in Low-or
-                    Middle-Income Settings. Lyon (FR)</li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK566957/">Bray et al. (2014). Planning and Developing Population-Based Cancer Registration in Low-or
+                    Middle-Income Settings. Lyon (FR). International Agency for Research on Cancer.</a></li>
             </ol>
         </div>
         <div class="footer-section">
@@ -305,7 +272,6 @@
                 at the Harvard T.H. Chan School of Public Health.</p>
         </div>
     </div>
-
     <script>
         function toggleContent(id, button) {
             var contents = document.querySelectorAll('.interactive-element');
