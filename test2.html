@@ -1,6 +1,11 @@
 <style>
     body {
+        font-family: Arial, sans-serif;
         line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
     }
 
     .header {
@@ -25,9 +30,10 @@
 
     .section {
         padding: 25px;
-        background-color: #e5e5e5;
+        background-color: #ffffff;
         border-radius: 20px;
         margin: 10px 0px 10px 0px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
     .section:first-child {
@@ -43,7 +49,7 @@
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 10px;
-        color: #243F59;
+        color: #4472C4;
     }
 
     .section-subtitle {
@@ -52,7 +58,7 @@
         text-align: center;
         margin-top: 15px;
         margin-bottom: 10px;
-        color: #004466;
+        color: #4472C4;
     }
 
     .interactive-element {
@@ -68,16 +74,21 @@
     }
 
     .expand-btn {
-        background-color: #6F7871;
+        background-color: #4472C4;
         color: white;
         border: none;
         padding: 10px 15px;
         cursor: pointer;
         border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .expand-btn:hover {
+        background-color: #365899;
     }
 
     .expand-btn.active {
-        background-color: #889D66;
+        background-color: #334e7f;
     }
 
     .hidden {
@@ -98,7 +109,7 @@
         background-color: #F2F2F2;
         margin-bottom: 10px;
         padding: 15px;
-        border-left: 5px solid #889D66;
+        border-left: 5px solid #4472C4;
         transition: all 0.3s ease;
     }
 
@@ -152,7 +163,7 @@
     .footer-title {
         font-size: 1.3em;
         font-weight: bold;
-        color: #333;
+        color: #4472C4;
         margin-bottom: 10px;
     }
 
@@ -179,6 +190,7 @@
     }
 </style>
 
+
 <body>
     <div class="header">
         <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
@@ -188,39 +200,58 @@
     <div class="section-block">
         <div class="section">
             <p class="section-title">Introduction</p>
-            <p>Prior to 2016, Afghanistan lacked specialized cancer programs. The International Agency for Research on
-                Cancer (IARC) relied on neighboring countries' data for estimates. The 2016 launch of the Cancer
-                Diagnosis and Treatment Project, evolving into the National Cancer Control Program (NCCP) in 2017,
-                marked significant progress. The NCCP established the Kabul Cancer Registry (KCR), enabling
-                Afghanistan's first domestic cancer epidemiology study.</p>
+            <p>Japan has seen a significant rise in non-regular employment due to the 2018 work style reform
+                (Hatarakikata Kaiku) and economic fluctuations. This study by Mariko Enoue compares mental health
+                outcomes among non-regular, regular, and gig workers in terms of stress levels. The findings have
+                relevant policy implications for achieving Sustainable Development Goal 8.8: Protect labor rights and
+                promote safe and secure working environments for all workers, including those in precarious employment.
+            </p>
         </div>
         <div class="section">
-            <p class="section-title">Objectives</p>
+            <p class="section-title">Employment Status Categories</p>
             <ul class="objectives-list">
-                <li>Report the first cancer incidence in Afghanistan using population-based cancer registry data.</li>
-                <li>Analyze data collected from over 50 health facilities in Kabul between 2018 and 2020.</li>
-                <li>Provide a foundation for future cancer research and policy in Afghanistan.</li>
+                <li>Regular workers (full-time employees with lifelong contracts)</li>
+                <li>Non-regular workers (part-time workers, temporary agency workers, and contract workers)</li>
+                <li>Self-employed individuals</li>
+                <li>Gig workers ("crowdwork" and "work on-demand via apps" for short-term or one-time tasks)</li>
             </ul>
         </div>
     </div>
 
     <div class="section">
-        <p class="section-title">Methods</p>
+        <p class="section-title">Background Information</p>
+        <iframe src='https://flo.uri.sh/story/2416512/embed' title='Interactive or visual content'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/story/2416512/?utm_source=embed&utm_campaign=story/2416512' target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                    src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                    style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a>
+        </div>
+    </div>
+
+    <div class="section">
+        <p class="section-title">Study Objective and Methods</p>
         <div class="method-grid">
             <div class="method-item">
+                <div class="method-icon">🎯</div>
+                <div class="method-title">Objective</div>
+                <p>To study how non-regular employment associates with the mental health of workers, including gig
+                    workers and participants in sharing economies in Japan.</p>
+            </div>
+            <div class="method-item">
                 <div class="method-icon">📊</div>
+                <div class="method-title">Study Design</div>
+                <p>Cross-sectional study conducted in March 2023</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">👥</div>
+                <div class="method-title">Participants</div>
+                <p>Working men and women aged 18–65 years in Japan (N=3,185)</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">📝</div>
                 <div class="method-title">Data Collection</div>
-                <p>Gathered from 50+ Kabul health facilities (2018-2020)</p>
-            </div>
-            <div class="method-item">
-                <div class="method-icon">💻</div>
-                <div class="method-title">Analysis Tool</div>
-                <p>CanReg-5 software for data storage and assessment</p>
-            </div>
-            <div class="method-item">
-                <div class="method-icon">📈</div>
-                <div class="method-title">Incidence Calculation</div>
-                <p>Crude, age-specific, and age-standardized rates per 100,000</p>
+                <p>Online questionnaire in collaboration with an online survey company</p>
             </div>
         </div>
     </div>
@@ -228,34 +259,46 @@
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
-            <button class="expand-btn active" onclick="showGraph('flourish1', event)">Cases by Age and Sex</button>
-            <button class="expand-btn" onclick="showGraph('flourish2', event)">Top 10 Cancer Sites (Combined)</button>
-            <button class="expand-btn" onclick="showGraph('flourish3', event)">Top 10 Cancer Sites by Gender</button>
-            <button class="expand-btn" onclick="showGraph('flourish4', event)">Childhood Cancer Data</button>
+            <button class="expand-btn active" onclick="toggleContent('employment', this)"">Employment and Psychological
+                Distress</button>
+            <button class=" expand-btn" onclick="toggleContent('socioeconomic', this)">Socioeconomic Status and
+                Psychological
+                Distress</button>
         </div>
-        <div id="flourish1">
-            <div class="flourish-embed" data-src="visualisation/18128122"></div>
+        <div id="employment" class="interactive-element">
+            <iframe src='https://flo.uri.sh/story/2416664/embed' title='Interactive or visual content'
+                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/story/2416664/?utm_source=embed&utm_campaign=story/2416664' target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                        src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                        style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+                </a></div>
         </div>
-        <div id="flourish2" class="hidden">
-            <div class="flourish-embed" data-src="visualisation/18127480"></div>
-        </div>
-        <div id="flourish3" class="hidden">
-            <div class="flourish-embed" data-src="visualisation/17996156"></div>
-        </div>
-        <div id="flourish4" class="hidden">
-            <iframe title="Childhood (0-14 years) cancer types, numbers, their rates" aria-label="Table"
-                src="https://datawrapper.dwcdn.net/o09k3/2/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe>
+        <div id="socioeconomic" class="interactive-element hidden">
+            <iframe src='https://flo.uri.sh/story/2416671/embed' title='Interactive or visual content'
+                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/story/2416671/?utm_source=embed&utm_campaign=story/2416671' target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                        src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                        style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+                </a></div>
         </div>
     </div>
 
     <div class="section">
-        <p class="section-title">Conclusions and Recommendations</p>
+        <div id="content-container"></div>
+        <p class="section-title">Results and Policy Implications</p>
         <ul class="conclusions-list">
-            <li>First cancer estimates for Afghanistan based on population-based registry data.</li>
-            <li>IARC should consider these data for future cancer incidence estimates in Afghanistan.</li>
-            <li>Findings provide crucial baseline for national cancer control planning and resource allocation.</li>
-            <li>Continued support and expansion of cancer registry efforts are recommended.</li>
+            <li>Regular workers with gig work experience had the highest odds ratio of psychological distress, followed
+                by non-regular workers with gig work experience.</li>
+            <li>Men engaging in gig work showed higher levels of psychological distress than those not participating in
+                gig work within the same employment category.</li>
+            <li>Self-employed individuals exclusively engaged in gig work had lower psychological distress than
+                expected.</li>
+            <li>The rise of gig-work in Japan does not fit well with the current occupational health system and adds
+                pressure on individuals, potentially widening health disparities.</li>
+            <li>It is essential to reassess health policies, particularly those concerning side gig work for workers,
+                regardless of their employment status, to safeguard everyone's health and working conditions.</li>
         </ul>
     </div>
 
@@ -263,50 +306,44 @@
         <div class="footer-section">
             <p class="footer-title">References</p>
             <ol class="footer-content">
-                <li>Ferlay et al. (2024). Global Cancer Observatory: Cancer Today. Lyon.</li>
-                <li>Bray et al. (2014). Planning and Developing Population-Based Cancer Registration in Low-or
-                    Middle-Income Settings. Lyon (FR)</li>
+                <li>Jaydarifard S, et al. Precarious employment and associated health and social consequences; a
+                    systematic review. Aust N Z J Public Health 2023;47(4):100074.</li>
+                <li>Inoue M, et al. Full-time workers with precarious employment face lower protection for receiving
+                    annual health check-ups. Am J Ind Med 2012; 55:884-92.</li>
+                <li>De Stefano V. The rise of the "just-in-time workforce": On-demand work, crowdwork and labour
+                    protection in the "gig economy". Geneva: International Labour Organization; 2016.</li>
             </ol>
         </div>
         <div class="footer-section">
-            <p class="footer-title">Acknowledgements</p>
-            <p class="footer-content">This research and presentation were supported by the Takemi Program in
-                International Health at the Harvard T.H. Chan School of Public Health, Boston, MA.</p>
+            <p class="footer-title">Grant Information</p>
+            <p class="footer-content">This work was supported by Japan Society for the Promotion of Science (JSPS)
+                KAKENHI Grant Number 22K10374.</p>
         </div>
         <div class="footer-section">
             <p class="footer-title">Contact Information</p>
-            <p class="footer-content">For further information, please contact the Takemi Program in International Health
-                at the Harvard T.H. Chan School of Public Health.</p>
+            <p class="footer-content">Mariko Inoue, MPH, PhD Fellow, Takemi Program in International Health, Harvard T.
+                H. Chan School of Public Health<br>minoue@hsph.harvard.edu, inoue-ph@med.teikyo-u.ac.jp</p>
         </div>
     </div>
 
-    <script src="https://public.flourish.studio/resources/embed.js"></script>
     <script>
-        // Function to show the selected graph and update button states
-        function showGraph(id, event) {
-            // Hide all graphs
-            var graphs = document.querySelectorAll('[id^="flourish"]');
-            graphs.forEach(function (graph) {
-                graph.classList.add('hidden');
+        function toggleContent(id, button) {
+            var contents = document.querySelectorAll('.interactive-element');
+            contents.forEach(function (content) {
+                content.classList.add('hidden');
             });
-
-            // Show the selected graph
-            var selectedGraph = document.getElementById(id);
-            if (selectedGraph) {
-                selectedGraph.classList.remove('hidden');
-            }
-
-            // Update button states
             var buttons = document.querySelectorAll('.expand-btn');
             buttons.forEach(function (btn) {
                 btn.classList.remove('active');
             });
-            event.target.classList.add('active');
+            var content = document.getElementById(id);
+            content.classList.remove('hidden');
+            button.classList.add('active');
         }
-
-        // Show the first graph by default when the page loads
         window.onload = function () {
-            showGraph('flourish1', { target: document.querySelector('.expand-btn') });
+            var firstButton = document.querySelector('.expand-btn');
+            var firstContentId = 'employment';
+            toggleContent(firstContentId, firstButton);
         };
     </script>
 </body>
