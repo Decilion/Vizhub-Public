@@ -184,7 +184,6 @@
         <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
             alt="Harvard T.H. Chan School of Public Health | Takemi Program in International Health">
     </div>
-
     <div class="section-block">
         <div class="section">
             <p class="section-title">Introduction</p>
@@ -207,7 +206,6 @@
     </div>
     <div class="section">
         <p class="section-title">Methods</p>
-
         <p class="section-subtitle">Scoping Literature Review</p>
         <div class="method-grid">
             <div class="method-item">
@@ -253,10 +251,8 @@
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
-            <button class="expand-btn active" onclick="toggleContent('bibliographic-databases', this)">Bibliographic
-                Databases</button>
-            <button class="expand-btn" onclick="toggleContent('key-informant-results', this)">Key Informant
-                Results</button>
+            <button class="expand-btn active" data-target="bibliographic-databases">Bibliographic Databases</button>
+            <button class="expand-btn" data-target="key-informant-results">Key Informant Results</button>
         </div>
         <div id="bibliographic-databases">
             <div class="interactive-element">
@@ -309,23 +305,39 @@
         </div>
     </div>
     <script>
-        function toggleContent(id, button) {
-            var contents = document.querySelectorAll('#bibliographic-databases, #key-informant-results');
-            contents.forEach(function (content) {
-                content.classList.add('hidden');
-            });
-            var buttons = document.querySelectorAll('.expand-btn');
-            buttons.forEach(function (btn) {
-                btn.classList.remove('active');
-            });
-            var content = document.getElementById(id);
-            content.classList.remove('hidden');
+        function toggleContent(event) {
+            const button = event.target;
+            if (!button.matches('.expand-btn')) return;
+
+            const targetId = button.getAttribute('data-target');
+            const contents = document.querySelectorAll('#bibliographic-databases, #key-informant-results');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            document.getElementById(targetId).classList.remove('hidden');
+
+            const buttons = document.querySelectorAll('.expand-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
         }
+
         window.onload = function () {
-            var firstButton = document.querySelector('.expand-btn');
-            var firstContentId = 'bibliographic-databases';
-            toggleContent(firstContentId, firstButton);
+            const contentContainer = document.getElementById('content-container');
+            contentContainer.addEventListener('click', toggleContent);
+
+            const firstButton = document.querySelector('.expand-btn');
+            firstButton.classList.add('active');
+            document.getElementById(firstButton.getAttribute('data-target')).classList.remove('hidden');
         };
+
+        fetch('https://raw.githubusercontent.com/Decilion/Vizhub-Public/main/test.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('content-container').innerHTML = data;
+                const scripts = document.getElementById('content-container').getElementsByTagName('script');
+                for (let script of scripts) {
+                    eval(script.innerText);
+                }
+            })
+            .catch(error => console.error('Error:', error));
     </script>
 </body>
