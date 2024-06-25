@@ -1,100 +1,130 @@
 <style>
     body {
-        line-height: 1.6;
         font-family: Arial, sans-serif;
-        color:#555
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+        background-color: #f0f0f0;
     }
+
     .header {
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
         overflow: hidden;
-    }   
+    }
+
     .header img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 20px;
     }
+
     .section-block {
         display: flex;
         gap: 20px;
         margin: 10px 0px 0px 0px;
     }
+
     .section {
         padding: 25px;
-        background-color: #e5e5e5;
+        background-color: #ffffff;
         border-radius: 20px;
-        margin: 20px 0px 0px 0px;
+        margin: 10px 0px 10px 0px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
+
     .section:first-child {
         flex: 0 1 auto;
-        max-width: 80%;
+        max-width: 35%;
     }
+
     .section:last-child {
         flex: 1 1 auto;
     }
+
     .section-title {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 10px;
-        color: #B55959;
+        color: #4472C4;
     }
+
     .section-subtitle {
         font-size: 1.2em;
         font-weight: bold;
-        text-align: left;
+        text-align: center;
         margin-top: 15px;
         margin-bottom: 10px;
-        color: #806379;
+        color: #4472C4;
     }
+
     .interactive-element {
         padding: 0px;
         margin: 0px 0;
     }
+
     .button-container {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-bottom: 15px;
     }
+
     .expand-btn {
-        background-color: #B59FB0;
+        background-color: #4472C4;
         color: white;
         border: none;
         padding: 10px 15px;
         cursor: pointer;
         border-radius: 5px;
+        transition: background-color 0.3s ease;
     }
+
+    .expand-btn:hover {
+        background-color: #365899;
+    }
+
     .expand-btn.active {
-        background-color: #806379;
+        background-color: #334e7f;
     }
+
     .hidden {
         display: none;
     }
-    .objectives-list, .conclusions-list {
-        display:flex;
+
+    .objectives-list,
+    .conclusions-list {
+        display: flex;
         flex-direction: column;
         justify-content: space-between;
         list-style-type: none;
         padding-left: 0;
     }
-    .objectives-list li, .conclusions-list li {
+
+    .objectives-list li,
+    .conclusions-list li {
         background-color: #F2F2F2;
         margin-bottom: 10px;
         padding: 15px;
-        border-left: 5px solid #56A571;
+        border-left: 5px solid #4472C4;
         transition: all 0.3s ease;
     }
-    .objectives-list li:hover, .conclusions-list li:hover {
+
+    .objectives-list li:hover,
+    .conclusions-list li:hover {
         transform: translateX(5px);
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .method-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 20px;
     }
+
     .method-item {
         background-color: #f2f2f2;
         padding: 15px;
@@ -102,207 +132,216 @@
         text-align: center;
         transition: all 0.3s ease;
     }
+
     .method-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
+
     .method-icon {
         font-size: 24px;
         margin-bottom: 10px;
     }
+
     .method-title {
         font-weight: bold;
         margin-bottom: 5px;
     }
+
     .footer {
-        display: flex; 
+        display: flex;
         justify-content: space-between;
         padding: 10px;
     }
+
     .footer-section {
         flex: 1;
         background-color: transparent;
         padding: 1px;
     }
+
     .footer-title {
         font-size: 1.3em;
         font-weight: bold;
-        color: #333;
+        color: #4472C4;
         margin-bottom: 10px;
     }
+
     .footer-content {
         font-size: 0.8em;
         color: #555;
     }
-    .themes {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .theme-content {
-        display: none;
-        padding: 20px;
-        background-color: #f8f8f8;
-        border-radius: 10px;
-        margin-top: 15px;
-    }
-    .theme-content.active {
-        display: block;
-    }
-    .theme-content h2 {
-        color: #243F59;
-        font-size: 1.2em;
-        margin-bottom: 10px;
-    }
-    .theme-content ul {
-        padding-left: 20px;
-    }
-    .theme-content li {
-        margin-bottom: 5px;
-    }
+
     @media (max-width: 768px) {
         .section-block {
             flex-direction: column;
             gap: 0px;
         }
-        .section:first-child, .section:last-child {
+
+        .section:first-child,
+        .section:last-child {
             flex: 1 1 auto;
             max-width: 100%;
         }
+
         .objectives-list {
             height: auto;
         }
     }
-    </style>
-    <body>
+</style>
+
+<body>
     <div class="header">
-        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg">
+        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
+            alt="Harvard T.H. Chan School of Public Health | Takemi Program in International Health">
     </div>
     <div class="section-block">
         <div class="section">
-            <p class="section-title">Background</p>
-            <p>About 80% of modifiable determinants of longevity and quality of life pertain to social and economic factors, health behaviors, and the physical environment i.e., the social determinants of health. </p>
-            <p>Health policy agendas predominantly focus on healthcare, but given the profound influence of social determinants, must give attention to determinants outside the health sector. Intersectoral actions, where health ministries collaborate with non-health sectors to address determinants of health, are crucial for improving population health and reducing health inequities. Health ministries commonly use priority setting methods to determine policy priorities for clinical care but these methods have not been applied to intersectoral actions until recently.</p>
+            <p class="section-title">Introduction</p>
+            <p>Japan has seen a significant rise in non-regular employment due to the 2018 work style reform
+                (Hatarakikata Kaiku) and economic fluctuations. This study by Mariko Enoue compares mental health
+                outcomes among non-regular, regular, and gig workers in terms of stress levels. The findings have
+                relevant policy implications for achieving Sustainable Development Goal 8.8: Protect labor rights and
+                promote safe and secure working environments for all workers, including those in precarious employment.
+            </p>
         </div>
         <div class="section">
-            <p class="section-title">Objective</p>
-            <p>To understand if priority setting could be a useful approach for health ministries to steer intersectoral actions across sectors.</p>
+            <p class="section-title">Employment Status Categories</p>
+            <ul class="objectives-list">
+                <li>Regular workers (full-time employees with lifelong contracts)</li>
+                <li>Non-regular workers (part-time workers, temporary agency workers, and contract workers)</li>
+                <li>Self-employed individuals</li>
+                <li>Gig workers ("crowdwork" and "work on-demand via apps" for short-term or one-time tasks)</li>
+            </ul>
         </div>
     </div>
     <div class="section">
-        <p class="section-title">Methods</p>
+        <p class="section-title">Background Information</p>
+        <iframe src='https://flo.uri.sh/story/2416512/embed' title='Interactive or visual content'
+            class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+            sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+        <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
+                href='https://public.flourish.studio/story/2416512/?utm_source=embed&utm_campaign=story/2416512'
+                target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                    src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                    style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'> </a>
+        </div>
+    </div>
+    <div class="section">
+        <p class="section-title">Study Objective and Methods</p>
         <div class="method-grid">
             <div class="method-item">
-                <div class="method-icon">&#x1f4dd;</div>
-                <div class="method-title">Design</div>
-                <p>A qualitative case study was conducted of an intersectoral priority setting exercise by the federal Ministry of Health in Pakistan</p>
+                <div class="method-icon">&#x1f3af;</div>
+                <div class="method-title">Objective</div>
+                <p>To study how non-regular employment associates with the mental health of workers, including gig
+                    workers and participants in sharing economies in Japan.</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">&#x1f4ca;</div>
+                <div class="method-title">Study Design</div>
+                <p>Cross-sectional study conducted in March 2023</p>
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f465;</div>
                 <div class="method-title">Participants</div>
-                <p>Fourteen policy makers and experts from health and other sectors</p>
+                <p>Working men and women aged 18–65 years in Japan (N=3,185)</p>
             </div>
             <div class="method-item">
-                <div class="method-icon">&#x1f4ca;</div>
-                <div class="method-title">Analysis</div>
-                <p>A reflexive thematic analysis of in-depth interviews was done</p>
+                <div class="method-icon">&#x1f4dd;</div>
+                <div class="method-title">Data Collection</div>
+                <p>Online questionnaire in collaboration with an online survey company</p>
             </div>
         </div>
     </div>
     <div class="section">
-        <p class="section-title">Theoretical support for the analysis</p>
-        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/Wafa-Poster-Graph.png" width=100% height=auto display=block>
-    </div>
-    <div class="section">
-        <p class="section-title">Findings and implications</p>
-        <div class="interactive-element">
-            <div class="button-container themes">
-                <button class="expand-btn" data-theme="1">Theme 1</button>
-                <button class="expand-btn" data-theme="2">Theme 2</button>
-                <button class="expand-btn" data-theme="3">Theme 3</button>
-                <button class="expand-btn" data-theme="4">Theme 4</button>
-                <button class="expand-btn" data-theme="5">Theme 5</button>
-            </div>
-            <div class="content">
-                <div class="theme-content" data-theme="1">
-                    <p class="section-subtitle">Intersectoral preventive actions for health are not a priority for health, other sectors, or the public</p>
-                    <p><strong>Key findings:</strong></p>
-                    <ul>
-                        <li>Intersectoral actions become a priority when there is an emergency, heightened media attention, high-level political support, or economic consequences.</li>
-                        <li>Reactive, short-term decision making and political pressures direct policy focus to immediate and visible problems rather than long-term health risks.</li>
-                    </ul>
-                    <p><strong>Conclusion:</strong> For political and systemic reasons preventive actions for health are not an investment priority.</p>
-                </div>
-                <div class="theme-content" data-theme="2">
-                    <p class="section-subtitle">Existing institutional mechanisms, mandates and norms do not facilitate intersectoral actions for health</p>
-                    <p><strong>Key findings:</strong></p>
-                    <ul>
-                        <li>Increasing policy support for intersectoral actions due to sustainable development agenda, donor requirements, and fiscal constraints across multiple sectors.</li>
-                        <li>Existing institutional mandates, mechanisms and norms are organized along strictly sectoral roles and prevent effective intersectoral collaboration.</li>
-                    </ul>
-                    <p><strong>Conclusion:</strong> Policy making institutions and culture have yet to evolve to fulfill the perceived need for intersectoral policies.</p>
-                </div>
-                <div class="theme-content" data-theme="3">
-                    <p class="section-subtitle">Health ministry does not effectively operate in the broader political space</p>
-                    <p><strong>Key findings:</strong></p>
-                    <ul>
-                        <li>Health ministry operates within its limited sectoral space rather than undertaking broader political engagement.</li>
-                        <li>Health ministry setting intersectoral priorities without meaningful and consistent engagement with other sectors is not seen as an effective strategy.</li>
-                    </ul>
-                    <p><strong>Conclusion:</strong> Unless health ministry has the capability to effectively steer an intersectoral agenda across sectors, choosing priority intersectoral actions in isolation is not seen as meaningful.</p>
-                </div>
-                <div class="theme-content" data-theme="4">
-                    <p class="section-subtitle">Health ministry has a central role in raising the priority of the social determinants agenda across sectors</p>
-                    <p><strong>Key findings:</strong></p>
-                    <ul>
-                        <li>Work on intersectoral actions in health ministry is opportunistic and incidental rather than a core policy agenda.</li>
-                        <li>Health ministry and public health institutions lack the technical capacity to support adoption and implementation of intersectoral actions across sectors.</li>
-                        <li>Health ministry should frame action on social determinants as a human development agenda rather than focusing only on health objectives.</li>
-                    </ul>
-                    <p><strong>Conclusion:</strong> Health ministry must expand its core policy agenda to include intersectoral actions and strengthen its analytical capacity and communication with other sectors.</p>
-                </div>
-                <div class="theme-content" data-theme="5">
-                    <p class="section-subtitle">Priority setting can be a useful approach but needs to be developed beyond its application to healthcare</p>
-                    <p><strong>Key findings:</strong></p>
-                    <ul>
-                        <li>A priority setting approach can allow the health ministry to identify its own priorities for intersectoral actions on social determinants.</li>
-                        <li>The health ministry struggled to identify which substantive criteria to use, how to apply them given the sparse evidence, how to appropriately capture the impact of intersectoral policies, and how to conduct an effective priority setting process involving different sectors.</li>
-                    </ul>
-                    <p><strong>Conclusion:</strong> Health ministries need theoretical and empirical support to inform normative choices, policy impact valuation, and coordinating priority setting across a wide range of stakeholders.</p>
-                </div>
-            </div>
+        <p class="section-title">Key Findings</p>
+        <div class="button-container">
+            <button class="expand-btn active" onclick="toggleContent('employment', this)"">Employment and Psychological
+                Distress</button>
+            <button class=" expand-btn" onclick="toggleContent('socioeconomic', this)">Socioeconomic Status and
+                Psychological
+                Distress</button>
+        </div>
+        <div id="employment" class="interactive-element">
+            <iframe src='https://flo.uri.sh/story/2416664/embed' title='Interactive or visual content'
+                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
+                    href='https://public.flourish.studio/story/2416664/?utm_source=embed&utm_campaign=story/2416664'
+                    target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                        src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                        style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+                </a></div>
+        </div>
+        <div id="socioeconomic" class="interactive-element hidden">
+            <iframe src='https://flo.uri.sh/story/2416671/embed' title='Interactive or visual content'
+                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+            <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
+                    href='https://public.flourish.studio/story/2416671/?utm_source=embed&utm_campaign=story/2416671'
+                    target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                        src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                        style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+                </a></div>
         </div>
     </div>
-    <div class="footer">
+    <div class="section">
+        <div id="content-container"></div>
+        <p class="section-title">Results and Policy Implications</p>
+        <ul class="conclusions-list">
+            <li>Regular workers with gig work experience had the highest odds ratio of psychological distress, followed
+                by non-regular workers with gig work experience.</li>
+            <li>Men engaging in gig work showed higher levels of psychological distress than those not participating in
+                gig work within the same employment category.</li>
+            <li>Self-employed individuals exclusively engaged in gig work had lower psychological distress than
+                expected.</li>
+            <li>The rise of gig-work in Japan does not fit well with the current occupational health system and adds
+                pressure on individuals, potentially widening health disparities.</li>
+            <li>It is essential to reassess health policies, particularly those concerning side gig work for workers,
+                regardless of their employment status, to safeguard everyone's health and working conditions.</li>
+        </ul>
+    </div>
+    <div class="section-block footer">
         <div class="footer-section">
             <p class="footer-title">References</p>
-            <p class="footer-content">Park, M. et al. (2015). Relative Contributions of a Set of Health Factors to Selected Health Outcomes. American Journal of Preventive, 49(6), 961–969.</p>
+            <ol class="footer-content">
+                <li>Jaydarifard S, et al. Precarious employment and associated health and social consequences; a
+                    systematic review. Aust N Z J Public Health 2023;47(4):100074.</li>
+                <li>Inoue M, et al. Full-time workers with precarious employment face lower protection for receiving
+                    annual health check-ups. Am J Ind Med 2012; 55:884-92.</li>
+                <li>De Stefano V. The rise of the "just-in-time workforce": On-demand work, crowdwork and labour
+                    protection in the "gig economy". Geneva: International Labour Organization; 2016.</li>
+            </ol>
+        </div>
+        <div class="footer-section">
+            <p class="footer-title">Grant Information</p>
+            <p class="footer-content">This work was supported by Japan Society for the Promotion of Science (JSPS)
+                KAKENHI Grant Number 22K10374.</p>
+        </div>
+        <div class="footer-section">
+            <p class="footer-title">Contact Information</p>
+            <p class="footer-content">Mariko Inoue, MPH, PhD Fellow, Takemi Program in International Health, Harvard T.
+                H. Chan School of Public Health<br>minoue@hsph.harvard.edu, inoue-ph@med.teikyo-u.ac.jp</p>
         </div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const themeBtns = document.querySelectorAll('.themes .expand-btn');
-            const themeContents = document.querySelectorAll('.theme-content');
-            themeBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const themeId = btn.dataset.theme;
-                    themeContents.forEach(content => {
-                        if (content.dataset.theme === themeId) {
-                            content.classList.add('active');
-                        } else {
-                            content.classList.remove('active');
-                        }
-                    });
-                    themeBtns.forEach(b => {
-                        if (b === btn) {
-                            b.classList.add('active');
-                        } else {
-                            b.classList.remove('active');
-                        }
-                    });
-                });
+        function toggleContent(id, button) {
+            var contents = document.querySelectorAll('.interactive-element');
+            contents.forEach(function (content) {
+                content.classList.add('hidden');
             });
-            themeBtns[0].click();
-        });
+            var buttons = document.querySelectorAll('.expand-btn');
+            buttons.forEach(function (btn) {
+                btn.classList.remove('active');
+            });
+            var content = document.getElementById(id);
+            content.classList.remove('hidden');
+            button.classList.add('active');
+        }
+        window.onload = function () {
+            var firstButton = document.querySelector('.expand-btn');
+            var firstContentId = 'employment';
+            toggleContent(firstContentId, firstButton);
+        };
     </script>
-    </body>
+</body>
