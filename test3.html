@@ -68,7 +68,7 @@
     }
 
     .expand-btn {
-        background-color: #6F7871;
+        background-color: #4C8DA8;
         color: white;
         border: none;
         padding: 10px 15px;
@@ -77,7 +77,7 @@
     }
 
     .expand-btn.active {
-        background-color: #889D66;
+        background-color: #56A571;
     }
 
     .hidden {
@@ -98,7 +98,7 @@
         background-color: #F2F2F2;
         margin-bottom: 10px;
         padding: 15px;
-        border-left: 5px solid #889D66;
+        border-left: 5px solid #56A571;
         transition: all 0.3s ease;
     }
 
@@ -188,109 +188,129 @@
     <div class="section-block">
         <div class="section">
             <p class="section-title">Introduction</p>
-            <p>Prior to 2016, Afghanistan lacked specialized cancer programs. The International Agency for Research on
-                Cancer (IARC) relied on neighboring countries' data for estimates. The 2016 launch of the Cancer
-                Diagnosis and Treatment Project, evolving into the National Cancer Control Program (NCCP) in 2017,
-                marked significant progress. The NCCP established the Kabul Cancer Registry (KCR), enabling
-                Afghanistan's first domestic cancer epidemiology study.</p>
+            <p>Lassa fever (LF), a viral hemorrhagic illness endemic in West Africa, causes an estimated 5000 fatalities
+                annually. LF vaccines are currently in development and not yet licensed for use. Factors that influence
+                prioritization of a future licensed vaccine by healthcare policy decision-makers in affected countries,
+                in the context of competing priorities, are currently unclear. A scoping literature review and Key
+                Informant interviews were conducted to provide data on such factors.</p>
         </div>
         <div class="section">
             <p class="section-title">Objectives</p>
             <ul class="objectives-list">
-                <li>Report the first cancer incidence in Afghanistan using population-based cancer registry data.</li>
-                <li>Analyze data collected from over 50 health facilities in Kabul between 2018 and 2020.</li>
-                <li>Provide a foundation for future cancer research and policy in Afghanistan.</li>
+                <li>Determine factors influencing decision-making by policymakers on prioritization of Lassa Fever
+                    vaccines procurement in affected countries.</li>
+                <li>Identify perceived barriers to the prioritization of Lassa Fever vaccines procurement.</li>
+                <li>Analyze Lassa Fever vaccine characteristics considered enablers for the prioritization of their
+                    procurement.</li>
             </ul>
         </div>
     </div>
-
     <div class="section">
         <p class="section-title">Methods</p>
+
+        <p class="section-subtitle">Scoping Literature Review</p>
         <div class="method-grid">
             <div class="method-item">
-                <div class="method-icon">📊</div>
-                <div class="method-title">Data Collection</div>
-                <p>Gathered from 50+ Kabul health facilities (2018-2020)</p>
+                <div class="method-icon">&#x1f4da;</div>
+                <div class="method-title">Literature Search</div>
+                <p>Literature search of bibliographic databases, guided by the PRISMA Scoping Review Extension
+                    recommendations</p>
             </div>
             <div class="method-item">
-                <div class="method-icon">💻</div>
-                <div class="method-title">Analysis Tool</div>
-                <p>CanReg-5 software for data storage and assessment</p>
+                <div class="method-icon">&#x1f5d3;&#xfe0f;</div>
+                <div class="method-title">Target duration</div>
+                <p>10-year period from 2014 to 2024 during which Lassa fever vaccine development has accelerated.</p>
             </div>
             <div class="method-item">
-                <div class="method-icon">📈</div>
-                <div class="method-title">Incidence Calculation</div>
-                <p>Crude, age-specific, and age-standardized rates per 100,000</p>
+                <div class="method-icon">&#x1f50d;</div>
+                <div class="method-title">Search Criteria</div>
+                <p>Restricted to articles published in the English language.</p>
+                <p>Search terms used: “Lassa Fever vaccine introduction”, "Lassa Fever vaccine adoption”, “Lassa fever
+                    vaccine prioritization” and“Lassa Fever vaccination policy”.</p>
+            </div>
+        </div>
+        <p class="section-subtitle">Key Informant Interviews (KIIs)</p>
+        <div class="method-grid">
+            <div class="method-item">
+                <div class="method-icon">&#x1f465;</div>
+                <div class="method-title">Interview Structure</div>
+                <p>Semi-structured interviews of officials from government agencies and non-governmental organizations
+                    (NGOs) that influence healthcare policy decision-making</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">&#x1f4dd;</div>
+                <div class="method-title">Questionnaire</div>
+                <p>Open-ended questions on healthcare policy decision-making</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">&#x1f4ca;</div>
+                <div class="method-title">Data Analysis</div>
+                <p>A thematic analysis was conducted, using the Burchett framework for new vaccine introduction as a
+                    guide (Burchett HED et al., 2012).</p>
             </div>
         </div>
     </div>
-
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
-            <button class="expand-btn active" onclick="showGraph('flourish1', event)">Cases by Age and Sex</button>
-            <button class="expand-btn" onclick="showGraph('flourish2', event)">Top 10 Cancer Sites (Combined)</button>
-            <button class="expand-btn" onclick="showGraph('flourish3', event)">Top 10 Cancer Sites by Gender</button>
-            <button class="expand-btn" onclick="showGraph('flourish4', event)">Childhood Cancer Data</button>
+            <button class="expand-btn active" onclick="toggleContent('bibliographic-databases', this)">Bibliographic
+                Databases</button>
+            <button class="expand-btn" onclick="toggleContent('key-informant-results', this)">Key Informant
+                Results</button>
         </div>
-        <div id="flourish1">
-            <iframe src='https://flo.uri.sh/visualisation/18127480/embed' title='Interactive or visual content'
-                class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
-                sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-            <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
-                    href='https://public.flourish.studio/visualisation/18127480/?utm_source=embed&utm_campaign=visualisation/18127480'
-                    target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
-                        src='https://public.flourish.studio/resources/made_with_flourish.svg'
-                        style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-                </a></div>
+        <div id="bibliographic-databases">
+            <div class="interactive-element">
+                <p class="section-subtitle">Number of published articles by year in bibliographic databases</p>
+                <iframe title="" aria-label="Table" id="datawrapper-chart-9LsEL"
+                    src="https://datawrapper.dwcdn.net/9LsEL/1/" scrolling="no" frameborder="0"
+                    style="width: 0; min-width: 100% !important; border: none;" height=auto data-external="2"></iframe>
+                <script
+                    type="text/javascript">!function () { "use strict"; window.addEventListener("message", (function (a) { if (void 0 !== a.data["datawrapper-height"]) { var e = document.querySelectorAll("iframe"); for (var t in a.data["datawrapper-height"]) for (var r = 0; r < e.length; r++)if (e[r].contentWindow === a.source) { var i = a.data["datawrapper-height"][t] + "px"; e[r].style.height = i } } })) }();</script>
+            </div>
         </div>
-        <div id="flourish2" class="hidden">
-            <div class="flourish-embed" data-src="visualisation/18127480"></div>
-        </div>
-        <div id="flourish3" class="hidden">
-            <div class="flourish-embed" data-src="visualisation/17996156"></div>
-        </div>
-        <div id="flourish4" class="hidden">
-            <iframe title="Childhood (0-14 years) cancer types, numbers, their rates" aria-label="Table"
-                src="https://datawrapper.dwcdn.net/o09k3/2/" scrolling="no" frameborder="0"
-                style="width: 0; min-width: 100% !important; border: none;" height="593"></iframe>
+        <div id="key-informant-results" class="hidden">
+            <div class="interactive-element">
+                <div class="flourish-embed" data-src="story/2444778">
+                    <script src="https://public.flourish.studio/resources/embed.js"></script>
+                </div>
+            </div>
         </div>
     </div>
-
     <div class="section">
         <p class="section-title">Conclusions and Recommendations</p>
         <ul class="conclusions-list">
-            <li>First cancer estimates for Afghanistan based on population-based registry data.</li>
-            <li>IARC should consider these data for future cancer incidence estimates in Afghanistan.</li>
-            <li>Findings provide crucial baseline for national cancer control planning and resource allocation.</li>
-            <li>Continued support and expansion of cancer registry efforts are recommended.</li>
+            <li>Limited evidence from published literature to inform decision-making for prioritization of Lassa Fever
+                vaccine procurement in affected countries.</li>
+            <li>Further research needed to validate perceived barriers and key enabling factors for Lassa Fever vaccine
+                procurement and prioritization.</li>
+            <li>Major consideration: vaccine safety, high efficacy, and long-lasting immunity, given the high case
+                fatality rate of Lassa Fever.</li>
+            <li>Financial support needed to facilitate the adoption of Lassa Fever vaccines due to affordability
+                concerns.</li>
         </ul>
     </div>
-
     <div class="section-block footer">
+        <div class="footer-section">
+            <p class="footer-title">Acknowledgements</p>
+            <p class="footer-content">Professor Veronika Wirtz and Dr. Jesse Bump were project advisors. Professor Aya
+                Goto provided helpful suggestions. Oyeronke Oyebanji (CEPI), Sourabh Sobti (CEPI), and Dr. Stephen B.
+                Kennedy (PREVAIL, Monrovia, Liberia) all facilitated the conduct of this research.</p>
+            <p class="footer-content">No funding support was provided. No human subjects were involved in this research.
+            </p>
+        </div>
         <div class="footer-section">
             <p class="footer-title">References</p>
             <ol class="footer-content">
-                <li>Ferlay et al. (2024). Global Cancer Observatory: Cancer Today. Lyon.</li>
-                <li>Bray et al. (2014). Planning and Developing Population-Based Cancer Registration in Low-or
-                    Middle-Income Settings. Lyon (FR)</li>
+                <li>Tricco, AC et al. (2018). PRISMA Extension for Scoping Reviews (PRISMA-ScR): Checklist and
+                    Explanation. Ann Intern Med. 169:467-473.</li>
+                <li>Burchett, HED et al. (2012) New vaccine adoption: qualitative study of national decision-making
+                    processes in seven low- and middle-income countries. Health Policy and Planning. 27: i5-i16.</li>
             </ol>
         </div>
-        <div class="footer-section">
-            <p class="footer-title">Acknowledgements</p>
-            <p class="footer-content">This research and presentation were supported by the Takemi Program in
-                International Health at the Harvard T.H. Chan School of Public Health, Boston, MA.</p>
-        </div>
-        <div class="footer-section">
-            <p class="footer-title">Contact Information</p>
-            <p class="footer-content">For further information, please contact the Takemi Program in International Health
-                at the Harvard T.H. Chan School of Public Health.</p>
-        </div>
     </div>
-
     <script>
         function toggleContent(id, button) {
-            var contents = document.querySelectorAll('.interactive-element');
+            var contents = document.querySelectorAll('#bibliographic-databases, #key-informant-results');
             contents.forEach(function (content) {
                 content.classList.add('hidden');
             });
@@ -304,7 +324,7 @@
         }
         window.onload = function () {
             var firstButton = document.querySelector('.expand-btn');
-            var firstContentId = 'cases-by-age-sex';
+            var firstContentId = 'bibliographic-databases';
             toggleContent(firstContentId, firstButton);
         };
     </script>
