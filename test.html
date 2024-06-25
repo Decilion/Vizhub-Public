@@ -1,138 +1,100 @@
 <style>
     body {
         line-height: 1.6;
+        font-family: Arial, sans-serif;
+        color:#555
     }
-
     .header {
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
         overflow: hidden;
-    }
-
+    }   
     .header img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 20px;
     }
-
-    .main-content {
-        display: flex;
-        gap: 20px;
-        margin: 10px 0;
-    }
-
-    .intro-objectives {
-        display: flex;
-        gap: 20px;
-        width: 100%;
-    }
-
-    .intro-objectives .section {
-        flex: 1;
-        max-width: none;
-    }
-
-    .intro-objectives .section:first-child {
-        flex: 2;
-    }
-
-    .intro-objectives .section:last-child {
-        flex: 1;
-    }
-
     .section-block {
         display: flex;
         gap: 20px;
         margin: 10px 0px 0px 0px;
     }
-
     .section {
         padding: 25px;
         background-color: #e5e5e5;
         border-radius: 20px;
-        margin: 10px 0px 10px 0px;
+        margin: 20px 0px 0px 0px;
     }
-
+    .section:first-child {
+        flex: 0 1 auto;
+        max-width: 80%;
+    }
+    .section:last-child {
+        flex: 1 1 auto;
+    }
     .section-title {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 10px;
-        color: #243F59;
+        color: #B55959;
     }
-
     .section-subtitle {
         font-size: 1.2em;
         font-weight: bold;
-        text-align: center;
+        text-align: left;
         margin-top: 15px;
         margin-bottom: 10px;
-        color: #004466;
+        color: #806379;
     }
-
     .interactive-element {
         padding: 0px;
         margin: 0px 0;
     }
-
     .button-container {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-bottom: 15px;
     }
-
     .expand-btn {
-        background-color: #4C8DA8;
+        background-color: #B59FB0;
         color: white;
         border: none;
         padding: 10px 15px;
         cursor: pointer;
         border-radius: 5px;
     }
-
     .expand-btn.active {
-        background-color: #56A571;
+        background-color: #806379;
     }
-
     .hidden {
         display: none;
     }
-
-    .intro-list li,
-    .objectives-list,
-    .conclusions-list {
-        display: flex;
+    .objectives-list, .conclusions-list {
+        display:flex;
         flex-direction: column;
         justify-content: space-between;
         list-style-type: none;
         padding-left: 0;
     }
-
-    .intro-list li,
-    .objectives-list li,
-    .conclusions-list li {
+    .objectives-list li, .conclusions-list li {
         background-color: #F2F2F2;
         margin-bottom: 10px;
         padding: 15px;
         border-left: 5px solid #56A571;
         transition: all 0.3s ease;
     }
-
-    .intro-list,
-    .objectives-list li:hover,
-    .conclusions-list li:hover {
+    .objectives-list li:hover, .conclusions-list li:hover {
         transform: translateX(5px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
     .method-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
-
     .method-item {
         background-color: #f2f2f2;
         padding: 15px;
@@ -140,116 +102,91 @@
         text-align: center;
         transition: all 0.3s ease;
     }
-
     .method-item:hover {
         transform: translateY(-5px);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
-
     .method-icon {
         font-size: 24px;
         margin-bottom: 10px;
     }
-
     .method-title {
         font-weight: bold;
         margin-bottom: 5px;
     }
-
     .footer {
-        display: flex;
+        display: flex; 
         justify-content: space-between;
         padding: 10px;
     }
-
     .footer-section {
         flex: 1;
         background-color: transparent;
         padding: 1px;
     }
-
     .footer-title {
         font-size: 1.3em;
         font-weight: bold;
         color: #333;
         margin-bottom: 10px;
     }
-
     .footer-content {
         font-size: 0.8em;
         color: #555;
     }
-
+    .themes {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .theme-content {
+        display: none;
+        padding: 20px;
+        background-color: #f8f8f8;
+        border-radius: 10px;
+        margin-top: 15px;
+    }
+    .theme-content.active {
+        display: block;
+    }
+    .theme-content h2 {
+        color: #243F59;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+    .theme-content ul {
+        padding-left: 20px;
+    }
+    .theme-content li {
+        margin-bottom: 5px;
+    }
     @media (max-width: 768px) {
         .section-block {
             flex-direction: column;
             gap: 0px;
         }
-
-        .section:first-child,
-        .section:last-child {
+        .section:first-child, .section:last-child {
             flex: 1 1 auto;
-            max-width: 50%;
+            max-width: 100%;
         }
-
         .objectives-list {
             height: auto;
         }
-
-        .graph-notes {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            list-style-type: none;
-            padding-left: 0;
-            margin-top: 15px;
-        }
-
-        .graph-notes li {
-            background-color: #F2F2F2;
-            margin-bottom: 10px;
-            padding: 15px;
-            border-left: 5px solid #56A571;
-            transition: all 0.3s ease;
-        }
-
-        .graph-notes li:hover {
-            transform: translateX(5px);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
     }
-</style>
-
-<body>
+    </style>
+    <body>
     <div class="header">
-        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
-            alt="Harvard T.H. Chan School of Public Health | Takemi Program in International Health">
+        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg">
     </div>
-    <div class="main-content">
-        <div class="intro-objectives">
-            <div class="section">
-                <p class="section-title">Introduction</p>
-                <ul class="intro-list">
-                    <li>Globally, 39 million people were living with HIV at the end of 2022 with three quarters of these
-                        individuals living across the sub-Saharan African (SSA) region.</li>
-                    <li>ASince 2018, millions of people living with HIV (PLWH) started transitioning from the previous
-                        non-nucleoside reverse-transcriptase inhibitor (NNRTI)-based antiretroviral therapy (ART)
-                        regimens to dolutegravir (DTG)- based ART.</li>
-                    <li>ADTG is an optimal drug of choice for first-line ART due to its higher potency, genetic barrier
-                        to resistance and shorter time to suppression. With the aim of ending the AIDS epidemic by 2030,
-                        one of the UNAIDS 95-95-95 agenda aims at ensuring virological suppression of PLWH and accessing
-                        treatment. Therefore, it is important to assess progress especially in the context of newer
-                        treatment strategies.</li>
-                </ul>
-            </div>
-            <div class="section">
-                <p class="section-title">Objectives</p>
-                <ul class="objectives-list">
-                    <li>Assess virological suppression rates of PLWH transitioning to DTG-based ART after 24 months of
-                        transition in Abuja, Nigeria.</li>
-                    <li>Characterize the determinants of virological suppression using regression analysis.</li>
-                </ul>
-            </div>
+    <div class="section-block">
+        <div class="section">
+            <p class="section-title">Background</p>
+            <p>About 80% of modifiable determinants of longevity and quality of life pertain to social and economic factors, health behaviors, and the physical environment i.e., the social determinants of health. </p>
+            <p>Health policy agendas predominantly focus on healthcare, but given the profound influence of social determinants, must give attention to determinants outside the health sector. Intersectoral actions, where health ministries collaborate with non-health sectors to address determinants of health, are crucial for improving population health and reducing health inequities. Health ministries commonly use priority setting methods to determine policy priorities for clinical care but these methods have not been applied to intersectoral actions until recently.</p>
+        </div>
+        <div class="section">
+            <p class="section-title">Objective</p>
+            <p>To understand if priority setting could be a useful approach for health ministries to steer intersectoral actions across sectors.</p>
         </div>
     </div>
     <div class="section">
@@ -258,132 +195,114 @@
             <div class="method-item">
                 <div class="method-icon">&#x1f4dd;</div>
                 <div class="method-title">Design</div>
-                <p>Retrospective population level data analysis from 2018- 2019 from 33,982 participants</p>
-            </div>
-            <div class="method-item">
-                <div class="method-icon">&#x1f4cd;</div>
-                <div class="method-title">Setting</div>
-                <p> Nigeria (Electronic data abstraction in Abuja, Nigeria)</p>
+                <p>A qualitative case study was conducted of an intersectoral priority setting exercise by the federal Ministry of Health in Pakistan</p>
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f465;</div>
                 <div class="method-title">Participants</div>
-                <p>Adult PLWH (≥15 years) transitioning to DTG-based regimen</p>
-            </div>
-            <div class="method-item">
-                <div class="method-icon">&#x1f50d;</div>
-                <div class="method-title">Outcome measure</div>
-                <p>Virological suppression after 12 and 24 months of participants followed for up to two years</p>.
+                <p>Fourteen policy makers and experts from health and other sectors</p>
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f4ca;</div>
                 <div class="method-title">Analysis</div>
-                <p> Evaluation of virological suppression rates (HIV viral load ≤50 copies/mL) at 12M and 24M following
-                    DTG transition and evaluation of determinants of suppression outcome using Poisson regression
-                    analysis</p>
+                <p>A reflexive thematic analysis of in-depth interviews was done</p>
             </div>
-        </div>
-    </div>
-    </div>
-    <div class="section">
-        <p class="section-title">Key Findings</p>
-        <div class="button-container">
-            <button class="expand-btn active" onclick="toggleContent('participant-characteristics', this)">Participant
-                Characteristics</button>
-            <button class="expand-btn" onclick="toggleContent('virological-suppression-rates', this)">Virological
-                Supression Rates</button>
-        </div>
-        <div id="participant-characteristics">
-            <div class="interactive-element">
-                <p class="section-subtitle">Participant Characteristics</p>
-                <iframe src='https://flo.uri.sh/story/2444479/embed' title='Interactive or visual content'
-                    class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
-                    sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-                <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
-                        href='https://public.flourish.studio/story/2444479/?utm_source=embed&utm_campaign=story/2444479'
-                        target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
-                            src='https://public.flourish.studio/resources/made_with_flourish.svg'
-                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-                    </a></div>
-            </div>
-            <ul class="graph-notes">
-                <li>27,608/33,982 (81.2%) had viral load data available at 12M and 25,990/33,982 (76.4%) at 24M</li>
-                <li>Most participants were females 21,930/33,982 (65%) with median age of 38 years (IQR: 32, 45)</li>
-                <li>Virological suppression rates at 12M was 22,006/27,608 (79.7%) and 24M was 21,320/25,990 (82%)</li>
-                <li>Higher rates of suppression was observed in switchers relative to starters at 12M and 24M.</li>
-            </ul>
-        </div>
-        <div id="virological-suppression-rates" class="hidden">
-            <div class="interactive-element">
-                <p class="section-subtitle">Virological Suppression Rates</p>
-                <iframe src='https://flo.uri.sh/story/2439749/embed' title='Interactive or visual content'
-                    class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
-                    sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-                <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
-                        href='https://public.flourish.studio/story/2439749/?utm_source=embed&utm_campaign=story/2439749'
-                        target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
-                            src='https://public.flourish.studio/resources/made_with_flourish.svg'
-                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-                    </a></div>
-            </div>
-            <ul class="graph-notes">
-                <li>In adjusted Poisson regression analysis, switcher status and female gender were the strongest
-                    predictors of virological suppression at 12M and 24M.</li>
-                <li>Access to antiretroviral care at tertiary health facilities and older age were also predictors of
-                    virological suppression at 12M and 24M.</li>
-            </ul>
         </div>
     </div>
     <div class="section">
-        <p class="section-title">Conclusions and Recommendations</p>
-        <ul class="conclusions-list">
-            <li>In the DTG era, evidence suggests robust virological response following transition with overall,
-                suppression rates ≈ 80%.</li>
-            <li>Low level viraemia was common and to a lesser extent, virological non-suppression; overall higher
-                frequency in DTG starters relative to switchers. </li>
-            <li>Sub-optimal retention rates in care with likely population level impact of continuous transmission.
-            </li>
-            <li>Our full results support the continued scale-up of DTG as drug of choice in Nigeria with virological
-                monitoring, drug resistance and adherence support to improve retention in care.</li>
-        </ul>
+        <p class="section-title">Theoretical support for the analysis</p>
+        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/Wafa-Poster-Graph.png" width=100% height=auto display=block>
     </div>
-    <div class="section-block footer">
-        <div class="footer-section">
-            <p class="footer-title">Acknowledgements</p>
-            <p class="footer-content">Professor Veronika Wirtz and Dr. Jesse Bump were project advisors. Professor Aya
-                Goto provided helpful suggestions. Oyeronke Oyebanji (CEPI), Sourabh Sobti (CEPI), and Dr. Stephen B.
-                Kennedy (PREVAIL, Monrovia, Liberia) all facilitated the conduct of this research.</p>
-            <p class="footer-content">No funding support was provided. No human subjects were involved in this research.
-            </p>
+    <div class="section">
+        <p class="section-title">Findings and implications</p>
+        <div class="interactive-element">
+            <div class="button-container themes">
+                <button class="expand-btn" data-theme="1">Theme 1</button>
+                <button class="expand-btn" data-theme="2">Theme 2</button>
+                <button class="expand-btn" data-theme="3">Theme 3</button>
+                <button class="expand-btn" data-theme="4">Theme 4</button>
+                <button class="expand-btn" data-theme="5">Theme 5</button>
+            </div>
+            <div class="content">
+                <div class="theme-content" data-theme="1">
+                    <p class="section-subtitle">Intersectoral preventive actions for health are not a priority for health, other sectors, or the public</p>
+                    <p><strong>Key findings:</strong></p>
+                    <ul>
+                        <li>Intersectoral actions become a priority when there is an emergency, heightened media attention, high-level political support, or economic consequences.</li>
+                        <li>Reactive, short-term decision making and political pressures direct policy focus to immediate and visible problems rather than long-term health risks.</li>
+                    </ul>
+                    <p><strong>Conclusion:</strong> For political and systemic reasons preventive actions for health are not an investment priority.</p>
+                </div>
+                <div class="theme-content" data-theme="2">
+                    <p class="section-subtitle">Existing institutional mechanisms, mandates and norms do not facilitate intersectoral actions for health</p>
+                    <p><strong>Key findings:</strong></p>
+                    <ul>
+                        <li>Increasing policy support for intersectoral actions due to sustainable development agenda, donor requirements, and fiscal constraints across multiple sectors.</li>
+                        <li>Existing institutional mandates, mechanisms and norms are organized along strictly sectoral roles and prevent effective intersectoral collaboration.</li>
+                    </ul>
+                    <p><strong>Conclusion:</strong> Policy making institutions and culture have yet to evolve to fulfill the perceived need for intersectoral policies.</p>
+                </div>
+                <div class="theme-content" data-theme="3">
+                    <p class="section-subtitle">Health ministry does not effectively operate in the broader political space</p>
+                    <p><strong>Key findings:</strong></p>
+                    <ul>
+                        <li>Health ministry operates within its limited sectoral space rather than undertaking broader political engagement.</li>
+                        <li>Health ministry setting intersectoral priorities without meaningful and consistent engagement with other sectors is not seen as an effective strategy.</li>
+                    </ul>
+                    <p><strong>Conclusion:</strong> Unless health ministry has the capability to effectively steer an intersectoral agenda across sectors, choosing priority intersectoral actions in isolation is not seen as meaningful.</p>
+                </div>
+                <div class="theme-content" data-theme="4">
+                    <p class="section-subtitle">Health ministry has a central role in raising the priority of the social determinants agenda across sectors</p>
+                    <p><strong>Key findings:</strong></p>
+                    <ul>
+                        <li>Work on intersectoral actions in health ministry is opportunistic and incidental rather than a core policy agenda.</li>
+                        <li>Health ministry and public health institutions lack the technical capacity to support adoption and implementation of intersectoral actions across sectors.</li>
+                        <li>Health ministry should frame action on social determinants as a human development agenda rather than focusing only on health objectives.</li>
+                    </ul>
+                    <p><strong>Conclusion:</strong> Health ministry must expand its core policy agenda to include intersectoral actions and strengthen its analytical capacity and communication with other sectors.</p>
+                </div>
+                <div class="theme-content" data-theme="5">
+                    <p class="section-subtitle">Priority setting can be a useful approach but needs to be developed beyond its application to healthcare</p>
+                    <p><strong>Key findings:</strong></p>
+                    <ul>
+                        <li>A priority setting approach can allow the health ministry to identify its own priorities for intersectoral actions on social determinants.</li>
+                        <li>The health ministry struggled to identify which substantive criteria to use, how to apply them given the sparse evidence, how to appropriately capture the impact of intersectoral policies, and how to conduct an effective priority setting process involving different sectors.</li>
+                    </ul>
+                    <p><strong>Conclusion:</strong> Health ministries need theoretical and empirical support to inform normative choices, policy impact valuation, and coordinating priority setting across a wide range of stakeholders.</p>
+                </div>
+            </div>
         </div>
+    </div>
+    <div class="footer">
         <div class="footer-section">
             <p class="footer-title">References</p>
-            <ol class="footer-content">
-                <li>Tricco, AC et al. (2018). PRISMA Extension for Scoping Reviews (PRISMA-ScR): Checklist and
-                    Explanation. Ann Intern Med. 169:467-473.</li>
-                <li>Burchett, HED et al. (2012) New vaccine adoption: qualitative study of national decision-making
-                    processes in seven low- and middle-income countries. Health Policy and Planning. 27: i5-i16.</li>
-            </ol>
+            <p class="footer-content">Park, M. et al. (2015). Relative Contributions of a Set of Health Factors to Selected Health Outcomes. American Journal of Preventive, 49(6), 961–969.</p>
         </div>
     </div>
     <script>
-        function toggleContent(id, button) {
-            var contents = document.querySelectorAll('#participant-characteristics, #virological-suppression-rates');
-            contents.forEach(function (content) {
-                content.classList.add('hidden');
+        document.addEventListener('DOMContentLoaded', function() {
+            const themeBtns = document.querySelectorAll('.themes .expand-btn');
+            const themeContents = document.querySelectorAll('.theme-content');
+            themeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const themeId = btn.dataset.theme;
+                    themeContents.forEach(content => {
+                        if (content.dataset.theme === themeId) {
+                            content.classList.add('active');
+                        } else {
+                            content.classList.remove('active');
+                        }
+                    });
+                    themeBtns.forEach(b => {
+                        if (b === btn) {
+                            b.classList.add('active');
+                        } else {
+                            b.classList.remove('active');
+                        }
+                    });
+                });
             });
-            var buttons = document.querySelectorAll('.expand-btn');
-            buttons.forEach(function (btn) {
-                btn.classList.remove('active');
-            });
-            var content = document.getElementById(id);
-            content.classList.remove('hidden');
-            button.classList.add('active');
-        }
-        window.onload = function () {
-            var firstButton = document.querySelector('.expand-btn');
-            var firstContentId = 'participant-characteristics';
-            toggleContent(firstContentId, firstButton);
-        };
+            themeBtns[0].click();
+        });
     </script>
-</body>
+    </body>
