@@ -141,8 +141,8 @@
         transition: all 0.3s ease;
     }
 
-    .method-item p {
-        text-align: left;
+    .method-item:last-child {
+        grid-column: 1 / -1;
     }
 
     .method-icon {
@@ -262,7 +262,7 @@
             <div class="method-item">
                 <div class="method-icon">&#x1f4cd;</div>
                 <div class="method-title">Setting</div>
-                <p> Nigeria (Electronic data abstraction in Abuja, Nigeria)</p>
+                <p>Nigeria (Electronic data abstraction in Abuja, Nigeria)</p>
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f465;</div>
@@ -272,16 +272,18 @@
             <div class="method-item">
                 <div class="method-icon">&#x1f50d;</div>
                 <div class="method-title">Outcome measure</div>
-                <p>Virological suppression after 12 and 24 months of participants followed for up to two years</p>.
+                <p>Virological suppression after 12 and 24 months of participants followed for up to two years</p>
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f4ca;</div>
                 <div class="method-title">Analysis</div>
-                <p> Evaluation of virological suppression rates (HIV viral load ≤50 copies/mL) at 12M and 24M following
+                <p>Evaluation of virological suppression rates (HIV viral load ≤50 copies/mL) at 12M and 24M following
                     DTG transition and evaluation of determinants of suppression outcome using Poisson regression
                     analysis</p>
             </div>
         </div>
+    </div>
+
     </div>
     <div class="section">
         <p class="section-title">Key Findings</p>
@@ -301,8 +303,8 @@
                         href='https://public.flourish.studio/story/2444479/?utm_source=embed&utm_campaign=story/2444479'
                         target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
                             src='https://public.flourish.studio/resources/made_with_flourish.svg'
-                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-                    </a></div>
+                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'></a>
+                </div>
             </div>
             <ul class="graph-notes">
                 <li>27,608/33,982 (81.2%) had viral load data available at 12M and 25,990/33,982 (76.4%) at 24M</li>
@@ -321,8 +323,8 @@
                         href='https://public.flourish.studio/story/2439749/?utm_source=embed&utm_campaign=story/2439749'
                         target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
                             src='https://public.flourish.studio/resources/made_with_flourish.svg'
-                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
-                    </a></div>
+                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'></a>
+                </div>
             </div>
             <ul class="graph-notes">
                 <li>In adjusted Poisson regression analysis, switcher status and female gender were the strongest
@@ -338,9 +340,8 @@
             <li>In the DTG era, evidence suggests robust virological response following transition with overall,
                 suppression rates ≈ 80%.</li>
             <li>Low level viraemia was common and to a lesser extent, virological non-suppression; overall higher
-                frequency in DTG starters relative to switchers. </li>
-            <li>Sub-optimal retention rates in care with likely population level impact of continuous transmission.
-            </li>
+                frequency in DTG starters relative to switchers.</li>
+            <li>Sub-optimal retention rates in care with likely population level impact of continuous transmission.</li>
             <li>Our full results support the continued scale-up of DTG as drug of choice in Nigeria with virological
                 monitoring, drug resistance and adherence support to improve retention in care.</li>
         </ul>
