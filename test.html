@@ -2,91 +2,107 @@
     body {
         line-height: 1.6;
     }
+
     .header {
         width: 100%;
         max-width: 1024px;
         margin: 0 auto;
         overflow: hidden;
     }
+
     .header img {
         width: 100%;
         height: auto;
         display: block;
         border-radius: 20px;
     }
+
     .main-content {
         display: flex;
         gap: 20px;
         margin: 10px 0;
     }
+
     .intro-objectives {
         display: flex;
         gap: 20px;
         width: 100%;
     }
+
     .intro-objectives .section {
         flex: 1;
         max-width: none;
     }
+
     .intro-objectives .section:first-child {
-        flex: 3;
+        flex: 2;
     }
+
     .intro-objectives .section:last-child {
-        flex: 1;
+        flex: 1
+        max-width: 102%;
     }
+
     .section-block {
         display: flex;
         gap: 20px;
         margin: 10px 0px 0px 0px;
     }
+
     .section {
         padding: 25px;
         background-color: #e5e5e5;
         border-radius: 20px;
         margin: 10px 0px 10px 0px;
     }
+
     .section-title {
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 10px;
-        color: #C00000;
+        color: #2F4890;
     }
+
     .section-subtitle {
         font-size: 1.2em;
         font-weight: bold;
         text-align: center;
         margin-top: 15px;
         margin-bottom: 10px;
-        color: #FF4C4C;
+        color: #2F4890;
     }
+
     .interactive-element {
         padding: 0px;
         margin: 0px 0;
     }
+
     .button-container {
         display: flex;
         justify-content: center;
         gap: 10px;
         margin-bottom: 15px;
     }
+
     .expand-btn {
-        background-color: #FF4C4C;
+        background-color: #7C9F87;
         color: white;
         border: none;
         padding: 10px 15px;
         cursor: pointer;
         border-radius: 5px;
-        width: 30%
     }
+
     .expand-btn.active {
-        background-color: #C00000;
+        background-color: #86759D;
     }
+
     .hidden {
         display: none;
     }
+
     .intro-list li,
     .objectives-list,
-    .evidence-list li,
     .conclusions-list {
         display: flex;
         flex-direction: column;
@@ -94,28 +110,30 @@
         list-style-type: none;
         padding-left: 0;
     }
+
     .intro-list li,
     .objectives-list li,
-    .evidence-list li,
     .conclusions-list li {
         background-color: #F2F2F2;
         margin-bottom: 10px;
         padding: 15px;
-        border-left: 5px solid #FF4C4C;
+        border-left: 5px solid #86759D;
         transition: all 0.3s ease;
     }
+
     .intro-list,
     .objectives-list li:hover,
-    .evidence-list li,
     .conclusions-list li:hover {
         transform: translateX(5px);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .method-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         gap: 20px;
     }
+
     .method-item {
         background-color: #f2f2f2;
         padding: 15px;
@@ -123,63 +141,62 @@
         text-align: center;
         transition: all 0.3s ease;
     }
+
     .method-item:hover {
         transform: translateY(-5px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     }
+
     .method-icon {
         font-size: 24px;
         margin-bottom: 10px;
     }
+
     .method-title {
         font-weight: bold;
         margin-bottom: 5px;
     }
-    .section-block2 {
-        display: flex;
-        gap: 20px;
-        margin: 0px 0px 0px 0px;
-        width: 100%;
-    }
-    .section-block2:first-child {
-        flex: 1;
-    }
-    .section-block2:last-child {
-        flex: 1;
-    }
+
     .footer {
         display: flex;
         justify-content: space-between;
         padding: 10px;
     }
+
     .footer-section {
         flex: 1;
         background-color: transparent;
         padding: 1px;
     }
+
     .footer-title {
         font-size: 1.3em;
         font-weight: bold;
-        color: #333;
+        color: #2F4890;
         margin-bottom: 10px;
     }
+
     .footer-content {
         font-size: 0.8em;
         color: #555;
     }
+
     @media (max-width: 768px) {
         .section-block {
             flex-direction: column;
             gap: 0px;
         }
+
         .section:first-child,
         .section:last-child {
             flex: 1 1 auto;
             max-width: 50%;
         }
+
         .objectives-list {
             height: auto;
         }
+
         .graph-notes {
             display: flex;
             flex-direction: column;
@@ -188,50 +205,53 @@
             padding-left: 0;
             margin-top: 15px;
         }
+
         .graph-notes li {
             background-color: #F2F2F2;
             margin-bottom: 10px;
             padding: 15px;
-            border-left: 5px solid #FF4C4C;
+            border-left: 5px solid #86759D;
             transition: all 0.3s ease;
         }
+
         .graph-notes li:hover {
             transform: translateX(5px);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
     }
 </style>
+
 <body>
     <div class="header">
-        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/Arnaud-Iradukunda-Vizhub-Header.png"
+        <img src="https://www.hsph.harvard.edu/takemi/wp-content/uploads/sites/114/2024/06/cropped-Group.jpg"
             alt="Harvard T.H. Chan School of Public Health | Takemi Program in International Health">
     </div>
+    <div class="main-content">
         <div class="intro-objectives">
             <div class="section">
-                <p class="section-title">Background</p>
+                <p class="section-title">Introduction</p>
                 <ul class="intro-list">
-                    <li>Since 2019, Tuberculosis and COVID-19 became main causes of illness and deaths globally.</li>
-                    <li>TB control programs have not been sufficient to address existing burden of TB and MDR-TB in
-                        Burundi.</li>
-                    <li>Gaps in TB control program include treatment adherence issues, challenges in prevention,
-                        diagnosis, treatment of MDR-TB as well exacerbation from new pandemics.</li>
+                    <li>Globally, 39 million people were living with HIV at the end of 2022 with three quarters of these
+                        individuals living across the sub-Saharan African (SSA) region.</li>
+                    <li>ASince 2018, millions of people living with HIV (PLWH) started transitioning from the previous
+                        non-nucleoside reverse-transcriptase inhibitor (NNRTI)-based antiretroviral therapy (ART)
+                        regimens to dolutegravir (DTG)- based ART.</li>
+                    <li>ADTG is an optimal drug of choice for first-line ART due to its higher potency, genetic barrier
+                        to resistance and shorter time to suppression. With the aim of ending the AIDS epidemic by 2030,
+                        one of the UNAIDS 95-95-95 agenda aims at ensuring virological suppression of PLWH and accessing
+                        treatment. Therefore, it is important to assess progress especially in the context of newer
+                        treatment strategies.</li>
                 </ul>
             </div>
             <div class="section">
                 <p class="section-title">Objectives</p>
                 <ul class="objectives-list">
-                    <li>To assess the impact of COVID-19 on TB mortality in Burundi.</li>
-                    <li>To assess the MDR-TB risk factors in the context of COVID-19 in Burundi.</li>
+                    <li>Assess virological suppression rates of PLWH transitioning to DTG-based ART after 24 months of
+                        transition in Abuja, Nigeria.</li>
+                    <li>Characterize the determinants of virological suppression using regression analysis.</li>
                 </ul>
             </div>
         </div>
-    <div class="section">
-        <p class="section-title">Pre-existing evidence</p>
-        <ul class="evidence-list">
-            <li>Before COVID-19, Burundi as well as many LICs had been grappling with a high burden of TB infection for
-                years.</li>
-            <li>The incidence of Multidrug resistance tuberculosis (MDR-TB) was a growing issue.</li>
-        </ul>
     </div>
     <div class="section">
         <p class="section-title">Methods</p>
@@ -239,20 +259,29 @@
             <div class="method-item">
                 <div class="method-icon">&#x1f4dd;</div>
                 <div class="method-title">Design</div>
-                <p>Incident case control study. Baseline and follow-up data was used</p>
+                <p>Retrospective population level data analysis from 2018- 2019 from 33,982 participants</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">&#x1f4cd;</div>
+                <div class="method-title">Setting</div>
+                <p> Nigeria (Electronic data abstraction in Abuja, Nigeria)</p>
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f465;</div>
                 <div class="method-title">Participants</div>
-                <p>362 patients who received TB treatment before or after the WHO’s declaration of COVID-19 as pandemic
-                </p>
+                <p>Adult PLWH (≥15 years) transitioning to DTG-based regimen</p>
+            </div>
+            <div class="method-item">
+                <div class="method-icon">&#x1f50d;</div>
+                <div class="method-title">Outcome measure</div>
+                <p>Virological suppression after 12 and 24 months of participants followed for up to two years</p>.
             </div>
             <div class="method-item">
                 <div class="method-icon">&#x1f4ca;</div>
                 <div class="method-title">Analysis</div>
-                <p>We used descriptive methods to compare the TB mortality before and during COVID-19, a logistic
-                    regression model to assess the risk factors of MDR-TB in the context of COVID-19, and machine
-                    learning to assess and build MDR-TB prediction model</p>
+                <p> Evaluation of virological suppression rates (HIV viral load ≤50 copies/mL) at 12M and 24M following
+                    DTG transition and evaluation of determinants of suppression outcome using Poisson regression
+                    analysis</p>
             </div>
         </div>
     </div>
@@ -260,102 +289,100 @@
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
-            <button class="expand-btn active" onclick="toggleContent('participant-characteristics', this)">TB
-                Mortality</button>
-            <button class="expand-btn" onclick="toggleContent('virological-suppression-rates', this)">Key factors
-                influencing multi drug resistance tuberculosis</button>
+            <button class="expand-btn active" onclick="toggleContent('participant-characteristics', this)">Participant
+                Characteristics</button>
+            <button class="expand-btn" onclick="toggleContent('virological-suppression-rates', this)">Virological
+                Supression Rates</button>
         </div>
-        <div id="participant-characteristics" class="hidden">
+        <div id="participant-characteristics">
             <div class="interactive-element">
-                <p class="section-subtitle">TB all-cause mortality before and during COVID-19</p>
+                <p class="section-subtitle">Participant Characteristics</p>
+                <iframe src='https://flo.uri.sh/story/2444479/embed' title='Interactive or visual content'
+                    class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
+                    sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
+                <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
+                        href='https://public.flourish.studio/story/2444479/?utm_source=embed&utm_campaign=story/2444479'
+                        target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
+                            src='https://public.flourish.studio/resources/made_with_flourish.svg'
+                            style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
+                    </a></div>
             </div>
             <ul class="graph-notes">
-                <li>16.02% of tuberculosis patients died while under TB treatment.</li>
-                <li>TB mortality rate did not increase significantly, changing from 15.3% before COVID-19 to 17.1%
-                    during the pandemic.</li>
-                <li>MDR-TB and early TB mortalities (intensive phase of treatment) significantly increased during
-                    COVID-19.</li>
-                <li>MDR-TB was more prevalent during COVID-19, especially in rural areas, smokers, alcohol consumers,
-                    diabetics, and malnourished individuals.</li>
+                <li>27,608/33,982 (81.2%) had viral load data available at 12M and 25,990/33,982 (76.4%) at 24M</li>
+                <li>Most participants were females 21,930/33,982 (65%) with median age of 38 years (IQR: 32, 45)</li>
+                <li>Virological suppression rates at 12M was 22,006/27,608 (79.7%) and 24M was 21,320/25,990 (82%)</li>
+                <li>Higher rates of suppression was observed in switchers relative to starters at 12M and 24M.</li>
             </ul>
         </div>
         <div id="virological-suppression-rates" class="hidden">
             <div class="interactive-element">
                 <p class="section-subtitle">Virological Suppression Rates</p>
-                <iframe src='https://flo.uri.sh/visualisation/18427283/embed' title='Interactive or visual content'
+                <iframe src='https://flo.uri.sh/story/2439749/embed' title='Interactive or visual content'
                     class='flourish-embed-iframe' frameborder='0' scrolling='no' style='width:100%;height:600px;'
                     sandbox='allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation'></iframe>
-                <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit' href='https://public.flourish.studio/visualisation/18427283/?utm_source=embed&utm_campaign=visualisation/18427283' target='_top' style='text-decoration:none!important' rel="noopener"><img alt='Made with Flourish'
+                <div style='width:100%!;margin-top:4px!important;text-align:right!important;'><a class='flourish-credit'
+                        href='https://public.flourish.studio/story/2439749/?utm_source=embed&utm_campaign=story/2439749'
+                        target='_top' style='text-decoration:none!important'><img alt='Made with Flourish'
                             src='https://public.flourish.studio/resources/made_with_flourish.svg'
                             style='width:105px!important;height:16px!important;border:none!important;margin:0!important;'>
                     </a></div>
             </div>
-        </div>
-    </div>
-    </div>
-    <div class="section-block2">
-        <div class="section">
-            <p class="section-title">Lessons</p>
-            <ul class="conclusions-list">
-                <li>TB all-cause mortality as well as the Multidrug resistance infection’s risk increased during
-                    COVID-19.</li>
-                <li>TB and MDR-TB early mortality were high, and significantly increased during COVID-19.</li>
-                <li>Both early TB/MDR-TB mortality were particularly observed in patients with a low socio-economic
-                    status.</li>
-                <li>Risk factors of MDR-TB include COVID 19 pandemic period, socio-economic, demographic, clinical, and
-                    therapeutic conditions.</li>
-            </ul>
-        </div>
-        <div class="section">
-            <p class="section-title">Recommendations</p>
-            <ul class="conclusions-list">
-                <li>This situation raises a cause for concern, especially in this context where there exists an equally
-                    high burden of communicable and non-communicable diseases including malnutrition.</li>
-                <li>A global approach focused on these identified factors could go a long way in a MDR-TB-free
-                    environment in Burundi.</li>
-                <li>Additional studies should focus on advanced screening techniques of Artificial Intelligence and
-                    Machine Learning as well early TB mortality predictors identifications.</li>
+            <ul class="graph-notes">
+                <li>In adjusted Poisson regression analysis, switcher status and female gender were the strongest
+                    predictors of virological suppression at 12M and 24M.</li>
+                <li>Access to antiretroviral care at tertiary health facilities and older age were also predictors of
+                    virological suppression at 12M and 24M.</li>
             </ul>
         </div>
     </div>
     <div class="section">
-        <p class="section-title">Policy implication</p>
-        <p>Understanding how the pandemic affected TB control efforts can help policymakers develop strategies to
-            mitigate the impact of future pandemic.</p>
+        <p class="section-title">Conclusions and Recommendations</p>
+        <ul class="conclusions-list">
+            <li>In the DTG era, evidence suggests robust virological response following transition with overall,
+                suppression rates ≈ 80%.</li>
+            <li>Low level viraemia was common and to a lesser extent, virological non-suppression; overall higher
+                frequency in DTG starters relative to switchers. </li>
+            <li>Sub-optimal retention rates in care with likely population level impact of continuous transmission.
+            </li>
+            <li>Our full results support the continued scale-up of DTG as drug of choice in Nigeria with virological
+                monitoring, drug resistance and adherence support to improve retention in care.</li>
         </ul>
     </div>
-    </div>
-    <div class="footer">
+    <div class="section-block footer">
         <div class="footer-section">
             <p class="footer-title">Acknowledgements</p>
-            <p class="footer-content">Burundian Health Facilities (Burundi ), TAKEMI Program (Harvard), JPMA (Japan), Michael Reich (Harvard), Aya Goto (Harvard), Jesse Bump (Harvard).</p>
+            <p class="footer-content">Professor Veronika Wirtz and Dr. Jesse Bump were project advisors. Professor Aya
+                Goto provided helpful suggestions. Oyeronke Oyebanji (CEPI), Sourabh Sobti (CEPI), and Dr. Stephen B.
+                Kennedy (PREVAIL, Monrovia, Liberia) all facilitated the conduct of this research.</p>
+            <p class="footer-content">No funding support was provided. No human subjects were involved in this research.
+            </p>
         </div>
         <div class="footer-section">
             <p class="footer-title">References</p>
             <ol class="footer-content">
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8934249/">Chakaya, J., et al., The WHO Global Tuberculosis 2021 Report–not so good news and turning the tide back to End TB. International Journal of Infectious Diseases, 2022.</a></li>
-                <li><a href="https://www.thelancet.com/journals/lanmic/article/PIIS2666-5247(22)00359-7/fulltext">Bagcchi, S., WHO's global tuberculosis report 2022. The Lancet Microbe, 2023.</a></li>               
+                <li><a href = "https://www.medbox.org/index.php/document/fact-sheet-global-aids-update-2019" >UNAIDS, “FACT SHEET – GLOBAL AIDS UPDATE 2019,” 2019.</a></li>
+                <li><a href = "https://www.who.int/publications/i/item/WHO-CDS-HIV-19.15">World Health Organization, “Update of recommendations on first- and second-line antiretroviral regimens,” 2019.</a></li>
             </ol>
         </div>
     </div>
     <script>
         function toggleContent(id, button) {
-            var contents = document.querySelectorAll('#help-seeking-content, #regression-content');
-            contents.forEach(function(content) {
+            var contents = document.querySelectorAll('#participant-characteristics, #virological-suppression-rates');
+            contents.forEach(function (content) {
                 content.classList.add('hidden');
             });
             var buttons = document.querySelectorAll('.expand-btn');
-            buttons.forEach(function(btn) {
+            buttons.forEach(function (btn) {
                 btn.classList.remove('active');
             });
             var content = document.getElementById(id);
             content.classList.remove('hidden');
             button.classList.add('active');
         }
-        window.onload = function() {
+        window.onload = function () {
             var firstButton = document.querySelector('.expand-btn');
-            var firstContentId = 'help-seeking-content';
+            var firstContentId = 'participant-characteristics';
             toggleContent(firstContentId, firstButton);
         };
     </script>
-    </body>
+</body>
