@@ -29,7 +29,7 @@
         max-width: none;
     }
     .intro-objectives .section:first-child {
-        flex: 4;
+        flex: 3.5;
     }
     .intro-objectives .section:last-child {
         flex: 1;
@@ -87,7 +87,8 @@
     .intro-list li,
     .objectives-list,
     .evidence-list li,
-    .conclusions-list {
+    .conclusions-list,
+    .graph-notes li {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -97,6 +98,7 @@
     .intro-list li,
     .objectives-list li,
     .evidence-list li,
+    .graph-notes li,
     .conclusions-list li {
         background-color: #F2F2F2;
         margin-bottom: 10px;
@@ -142,11 +144,11 @@
         margin: 0px 0px 0px 0px;
         width: 100%;
     }
-    .section-block2:first-child {
-        flex: 1;
+    .section-block2 .section:first-child {
+        flex: 2;
     }
-    .section-block2:last-child {
-        flex: 3;
+    .section-block2 .section:last-child {
+        flex: 1;
     }
     .footer {
         display: flex;
@@ -311,7 +313,8 @@
     <div class="footer">
         <div class="footer-section">
             <p class="footer-title">Acknowledgements</p>
-            <p class="footer-content">Burundian Health Facilities (Burundi ), TAKEMI Program (Harvard), JPMA (Japan), Michael Reich (Harvard) , Aya Goto (Harvard), Jesse Bump (Harvard) and Stéphane Verguet (Harvard).</p>
+            <p class="footer-content">Burundian Health Facilities (Burundi), TAKEMI Program (Harvard), JPMA (Japan), Michael Reich (Harvard) , Aya Goto (Harvard), Jesse Bump (Harvard) and Stéphane Verguet (Harvard).
+                .</p>
         </div>
         <div class="footer-section">
             <p class="footer-title">References</p>
