@@ -29,7 +29,7 @@
         max-width: none;
     }
     .intro-objectives .section:first-child {
-        flex: 3;
+        flex: 4;
     }
     .intro-objectives .section:last-child {
         flex: 1;
@@ -107,6 +107,7 @@
     .intro-list,
     .objectives-list li:hover,
     .evidence-list li,
+    .graph-notes li,
     .conclusions-list li:hover {
         transform: translateX(5px);
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -145,7 +146,7 @@
         flex: 1;
     }
     .section-block2:last-child {
-        flex: 1;
+        flex: 3;
     }
     .footer {
         display: flex;
@@ -254,12 +255,12 @@
     <div class="section">
         <p class="section-title">Key Findings</p>
         <div class="button-container">
-            <button class="expand-btn active" onclick="toggleContent('tb-mortality', this)">TB<br />Mortality</button>
-            <button class="expand-btn" onclick="toggleContent('mdr-tb-factors', this)">Key factors<br />influencing multi drug resistance tuberculosis</button>
+            <button class="expand-btn active" onclick="toggleContent('tb-mortality', this)">TB Mortality</button>
+            <button class="expand-btn" onclick="toggleContent('mdr-tb-factors', this)">Key factors influencing multi drug resistance tuberculosis</button>
         </div>
         <div id="tb-mortality" class="hidden">
             <div class="interactive-element">
-                <p class="section-subtitle">TB all-cause mortality before and during COVID-19</p>
+                <p class="section-subtitle">TB related mortality before and during COVID-19</p>
             </div>
             <ul class="graph-notes">
                 <li>16.02% of tuberculosis patients died while under TB treatment.</li>
@@ -310,7 +311,7 @@
     <div class="footer">
         <div class="footer-section">
             <p class="footer-title">Acknowledgements</p>
-            <p class="footer-content">Burundian Health Facilities (Burundi ), TAKEMI Program (Harvard), JPMA (Japan), Michael Reich (Harvard) , Aya Goto (Harvard)), Jesse Bump (Harvard) and Stéphane Verguet(Harvard).</p>
+            <p class="footer-content">Burundian Health Facilities (Burundi ), TAKEMI Program (Harvard), JPMA (Japan), Michael Reich (Harvard) , Aya Goto (Harvard), Jesse Bump (Harvard) and Stéphane Verguet (Harvard).</p>
         </div>
         <div class="footer-section">
             <p class="footer-title">References</p>
