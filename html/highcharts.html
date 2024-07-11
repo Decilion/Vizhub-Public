@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scatter Plot with Jitter by Region and Income Level</title>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/export-data.js"></script>
+</head>
+<body>
+  <div id="container" style="width: 100%; height: 600px;"></div>
+
+  <script>
+    // Fetch and parse the CSV data
+    fetch("https://raw.githubusercontent.com/Decilion/Vizhub-Public/main/under_five.csv")
+      .then(response => response.text())
+      .then(data => {
+        // Parse the CSV data
+        const lines = data.trim().split('\n');
+        const headers = lines[0].split(',');
+        const rows = lines.slice(1).map(line => line.split(','));
+
+        // Extract columns
+        const locations = rows.map(row => row[0]);
+        const incomeClassifications = rows.map(row => row[1]);
+        const regions = rows.map(row => row[2]);
+        const mortalityRates = rows.map(row => parseFloat(row[3]));
+
+        // Prepare unique regions for x-axis categories
+        const uniqueRegions = [...new Set(regions)];
+
+        // Map colors based on income classification
+        const incomeColorMap = {
+          'Low-income ': 'red',
+          'Lower-middle-income ': 'orange',
+          'Upper-middle-income ': 'blue',
+          'High-income ': 'green'
+        };
+
+        // Prepare data for the scatter plot
+        const scatterData = rows.map((row, index) => ({
+          x: uniqueRegions.indexOf(row[2]),
+          y: mortalityRates[index],
+          color: incomeColorMap[row[1]],
+          name: row[0],
+          incomeClass: row[1]
+        }));
+
+        // Create series for each income classificatio 
+        const series = Object.entries(incomeColorMap).map(([incomeClass, color]) => ({
+          name: incomeClass,
+          color: color,
+          data: scatterData.filter(point => point.incomeClass === incomeClass)
+        }));
+
+        // Create the scatter plot
+        Highcharts.chart('container', {
+          chart: {
+            type: 'scatter'
+          },
+
+          title: {
+            text: 'Under-five mortality rate by Region and Income Level'
+          },
+
+          xAxis: {
+            categories: uniqueRegions,
+            title: {
+              text: 'Region'
+            }
+          },
+
+          yAxis: {
+            title: {
+              text: 'Under-five mortality rate (per 1000 live births)'
+            }
+          },
+
+          plotOptions: {
+            scatter: {
+              jitter: {
+                x: 0.24,
+                y: 0
+              },
+              marker: {
+                radius: 4,
+                symbol: 'circle'
+              },
+              tooltip: {
+                pointFormat: '{point.name}: {point.y:.1f}'
+              }
+            }
+          },
+
+          legend: {
+            enabled: true,
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+          },
+
+          series: series
+        });
+      })
+      .catch(error => console.error('Error fetching or parsing data:', error));
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Heatmap with D3.js (Single Filter)</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <style>
+    #my_dataviz {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .axis text {
+      font-size: 10px;
+    }
+    .tooltip {
+      position: absolute;
+      background-color: rgba(255, 255, 255, 0.9);
+      border: 1px solid #ddd;
+      padding: 10px;
+      pointer-events: none;
+    }
+    .heatmap-container {
+      position: relative;
+    }
+    .y-axis {
+      position: sticky;
+      left: 0;
+      background-color: white;
+      z-index: 1;
+    }
+    #filters {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <div id="filters">
+    <select id="regionFilter"></select>
+  </div>
+  <div id="my_dataviz"></div>
+
+  <script>
+    // set the dimensions and margins of the graph
+    const margin = {top: 120, right: 50, bottom: 30, left: 150};
+    let width = 900 - margin.left - margin.right;
+    let height = 600 - margin.top - margin.bottom;
+
+    // Define the columns to be used for the heatmap
+    const columns = ["DTP3 Coverage", "MCV2 Coverage", "PCV3 Coverage", "HPV Coverage"];
+    let rows = [];
+
+    // Create SVG
+    const svg = d3.select("#my_dataviz")
+      .append("svg")
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+      .attr("preserveAspectRatio", "xMidYMid meet");
+
+    const g = svg.append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Create tooltip
+    const tooltip = d3.select("body").append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
+
+    // Read the data
+    d3.csv("../data/heatmap_with_region_and_income.csv").then(function(data) {
+      // Extract unique regions
+      const regions = Array.from(new Set(data.map(d => d.Region))).sort();
+
+      // Populate filter dropdown
+      const regionFilter = d3.select("#regionFilter");
+      regions.forEach(region => {
+        regionFilter.append("option").text(region).attr("value", region);
+      });
+
+      // Set default region (first in the list)
+      const defaultRegion = regions[0];
+      regionFilter.property('value', defaultRegion);
+
+      // Build X scales and axis:
+      const x = d3.scaleBand()
+        .range([0, width])
+        .domain(columns)
+        .padding(0.05);
+      g.append("g")
+        .attr("transform", `translate(0, ${-30})`)
+        .call(d3.axisTop(x).tickSize(0))
+        .selectAll("text")
+        .style("text-anchor", "middle")
+        .attr("dx", "0")
+        .attr("dy", "-0.5em");
+
+      // Build Y scales and axis:
+      const y = d3.scaleBand()
+        .range([height, 0])
+        .padding(0.05);
+
+      // Create a container for the heatmap content
+      const heatmapContainer = g.append("g")
+        .attr("class", "heatmap-container");
+
+      // Append y-axis to the heatmap container
+      const yAxis = heatmapContainer.append("g")
+        .attr("class", "y-axis");
+
+      // Build color scale
+      const myColor = d3.scaleLinear()
+        .range(["#e5f5e0", "#31a354"])  // Light green to darker green
+        .domain([0, 100]);
+
+      // Function to update the heatmap
+      function updateHeatmap(filteredData) {
+        // Update rows and y scale domain
+        rows = filteredData.map(d => d.Location);
+        y.domain(rows);
+
+        // Update y-axis
+        yAxis.transition().duration(1000).call(d3.axisLeft(y).tickSize(0));
+
+        // Update existing rectangles and add new ones
+        columns.forEach(function(column) {
+          const rects = heatmapContainer.selectAll(`.rect-${column.replace(/\s+/g, '-')}`)
+            .data(filteredData, d => d.Location);
+
+          rects.enter()
+            .append("rect")
+            .attr("class", `rect-${column.replace(/\s+/g, '-')}`)
+            .attr("x", d => x(column))
+            .attr("y", d => y(d.Location))
+            .attr("width", x.bandwidth())
+            .attr("height", y.bandwidth())
+            .style("fill", "#f7f7f7")
+            .on("mouseover", function(event, d) {
+              const value = +d[column];
+              tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);
+              tooltip.html(`${d.Location}<br>${column}: ${isNaN(value) ? 'N/A' : value}% <br> Region: ${d.Region}`)
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY - 28) + "px");
+            })
+            .on("mouseout", function(d) {
+              tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+            })
+          .merge(rects)
+            .transition()
+            .duration(1000)
+            .attr("y", d => y(d.Location))
+            .style("fill", d => {
+              const value = +d[column];
+              return isNaN(value) ? "#f7f7f7" : myColor(value);
+            });
+
+          rects.exit().remove();
+        });
+      }
+
+      // Add legend
+      const legendWidth = 200;
+      const legendHeight = 20;
+
+      const legendScale = d3.scaleLinear()
+        .range([0, legendWidth])
+        .domain(myColor.domain());
+
+      const legendAxis = d3.axisBottom(legendScale)
+        .ticks(5)
+        .tickFormat(d => d + "%");
+
+      const legend = g.append("g")
+        .attr("transform", `translate(${width - legendWidth}, ${-margin.top + 20})`);
+
+      legend.append("g")
+        .attr("transform", `translate(0, ${legendHeight})`)
+        .call(legendAxis);
+
+      const defs = legend.append("defs");
+
+      const linearGradient = defs.append("linearGradient")
+        .attr("id", "linear-gradient");
+
+      linearGradient.selectAll("stop")
+        .data(myColor.range())
+        .enter().append("stop")
+        .attr("offset", (d, i) => i / (myColor.range().length - 1))
+        .attr("stop-color", d => d);
+
+      legend.append("rect")
+        .attr("width", legendWidth)
+        .attr("height", legendHeight)
+        .style("fill", "url(#linear-gradient)");
+
+      // Filter event listener
+      d3.select("#regionFilter").on("change", updateFilter);
+
+      function updateFilter() {
+        const selectedRegion = d3.select("#regionFilter").property("value");
+        const filteredData = data.filter(d => d.Region === selectedRegion);
+        updateHeatmap(filteredData);
+      }
+
+      // Initial heatmap creation with default filter
+      updateFilter();
+    });
+
+    // Make it responsive
+    function resize() {
+      const container = d3.select("#my_dataviz");
+      const newWidth = container.node().getBoundingClientRect().width;
+      const newHeight = container.node().getBoundingClientRect().height;
+      
+      svg.attr("viewBox", `0 0 ${newWidth} ${newHeight}`)
+         .attr("width", newWidth)
+         .attr("height", newHeight);
+
+      // You might want to update scales, axes, and other elements here
+      // For example:
+      // x.range([0, newWidth - margin.left - margin.right]);
+      // y.range([newHeight - margin.top - margin.bottom, 0]);
+      // g.select(".x-axis").call(d3.axisBottom(x));
+      // g.select(".y-axis").call(d3.axisLeft(y));
+    }
+
+    d3.select(window).on("resize", resize);
+  </script>
+</body>
+</html>
