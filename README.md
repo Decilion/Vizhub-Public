@@ -2,6 +2,8 @@
 
 This repository contains a collection of example visualizations and other experiments. Each HTML file can be viewed directly in a browser.
 
+The Bogota Localidades map now loads a bundled GeoJSON file from `data/bogota.geojson` by default. Remote sources are only used if the local file fails to load.
+
 ## Root HTML files
 - [bogota_localidades.html](bogota_localidades.html)
 - [helloworld.html](helloworld.html)

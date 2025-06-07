@@ -23,6 +23,7 @@
 </head>
 <body>
   <div id="loading">Loading map...</div>
+  <div id="error" style="display:none;color:red;"></div>
   <div id="map"></div>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
     integrity="sha256-oHi64UlAeUe1DGn/T9a5gYdhBY4Q4iIG65P1W+ZniD8=" crossorigin=""></script>
@@ -38,9 +39,13 @@
     }).addTo(map);
     
     console.log('Base map loaded, fetching GeoJSON...');
-    
+
+    const loadingEl = document.getElementById('loading');
+    const errorEl = document.getElementById('error');
+
     // Try multiple GeoJSON sources
     const geoJsonUrls = [
+      'data/bogota.geojson',
       'https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/bogota.geojson',
       'https://gist.githubusercontent.com/john-guerra/43c7656821069d00dcbc/raw/be6a6e239cd5b5b803c6e7c2ec405b793a9064dd/bogotaLocalidades.json'
     ];
@@ -82,8 +87,9 @@
             }
           }).addTo(map);
           
-          // Hide loading indicator
-          document.getElementById('loading').style.display = 'none';
+          // Hide loading indicator and any error
+          loadingEl.style.display = 'none';
+          if (errorEl) errorEl.style.display = 'none';
           console.log('Map fully loaded!');
           return; // Success, exit function
           
@@ -91,7 +97,11 @@
           console.error(`Failed to load from URL ${i + 1}:`, error);
           if (i === geoJsonUrls.length - 1) {
             // Last URL failed, show error
-            document.getElementById('loading').innerHTML = 'Failed to load map data. Check console for details.';
+            loadingEl.style.display = 'none';
+            if (errorEl) {
+              errorEl.textContent = 'Failed to load map data. Check console for details.';
+              errorEl.style.display = 'block';
+            }
           }
         }
       }
