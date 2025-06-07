@@ -1,0 +1,37 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Localidad 1" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-74.1, 4.6],
+            [-74.1, 4.7],
+            [-74.0, 4.7],
+            [-74.0, 4.6],
+            [-74.1, 4.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Localidad 2" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-74.2, 4.6],
+            [-74.2, 4.7],
+            [-74.1, 4.7],
+            [-74.1, 4.6],
+            [-74.2, 4.6]
+          ]
+        ]
+      }
+    }
+  ]
+}
